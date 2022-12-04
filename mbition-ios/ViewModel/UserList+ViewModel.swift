@@ -52,7 +52,9 @@ extension UserList.ViewModel {
                 })
                 .flatMap { _ in self.userListService.userList}
                 .receive(on: DispatchQueue.main)
-                .delay(for: .seconds(5), scheduler: DispatchQueue.main)
+                // debug
+                .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+                // debug
                 .handleEvents(receiveOutput: { list in
                     // hide activity indicator and loading banner
                     self.activityIndicatorSubject.send(false)

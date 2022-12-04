@@ -27,6 +27,8 @@ extension UserList {
         userListService.userListArray = userList
         // debug
         
+//        let userListService = UserList.Service.Implementation()
+        
         let viewModel = UserList.ViewModel.Implementation(userListService: userListService)
         
         let viewController = UserList.ViewController(viewModel: viewModel)
