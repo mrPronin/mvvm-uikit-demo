@@ -50,8 +50,9 @@ extension UserList {
             $0.showsVerticalScrollIndicator = false
             $0.registerCellClass(UserList.Cell.self)
             $0.isHidden = true
-            // TODO: $0.tableHeaderView
         }
+        
+        private let refreshControl = UIRefreshControl()
 
         // MARK: - Private
         let viewModel: UserListViewModel
@@ -64,10 +65,8 @@ extension UserList {
 // MARK: - Private
 extension UserList.ViewController {
     @objc private func handleRefresh(_ sender: UIRefreshControl) {
-        // TODO: Update content
-//        load.send(.init(sorting: viewModel.sorting, scope: .network))
-        
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            self?.load.send()
             sender.endRefreshing()
         }
     }
@@ -87,8 +86,7 @@ extension UserList.ViewController {
         output.activityIndicator
             .sink { [weak self] showActivityIndicator in
                 if showActivityIndicator {
-                    self?.tableView.isHidden = true
-                    self?.view.showActivityIndicator(.activityIndicator, message: "Loading list")
+                    self?.view.showActivityIndicator(.activityIndicator)
                 } else {
                     self?.tableView.isHidden = false
                     self?.view.hideActivityIndicator()
@@ -110,6 +108,9 @@ extension UserList.ViewController {
             .done()
         
         stackView.addArrangedSubview(tableView)
+        
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
     }
 
 }
