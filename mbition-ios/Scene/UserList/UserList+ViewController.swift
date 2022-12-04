@@ -28,7 +28,26 @@ extension UserList {
         }
 
         // MARK: - UI
+        let stackView = UIStackView().then {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.axis = .vertical
+            $0.spacing = 0
+        }
         
+        let tableView = UITableView().then {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.backgroundColor = .background
+            $0.tableFooterView = UIView()
+            $0.rowHeight = UITableView.automaticDimension
+            $0.estimatedRowHeight = UITableView.automaticDimension
+            $0.separatorStyle = .singleLine
+            $0.showsHorizontalScrollIndicator = false
+            $0.showsVerticalScrollIndicator = false
+            $0.registerCellClass(UserList.Cell.self)
+            $0.isHidden = true
+            // TODO: $0.tableHeaderView
+        }
+
         // MARK: - Private
         let viewModel: UserListViewModel
         var router: UserListRouter!
@@ -57,7 +76,19 @@ extension UserList.ViewController {
     }
     
     private func setupOnLoad() {
+        view.backgroundColor = .background
+        title = "User list"
         
+        // stackView
+        stackView.add(into: view)
+            .leading()
+            .trailing()
+            .top(0, relation: .equal, toSafeArea: true)
+            .bottom(toSafeArea: true)
+            .done()
+        
+        // tableView
+        stackView.addArrangedSubview(tableView)
     }
 
 }
