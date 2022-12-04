@@ -45,7 +45,8 @@ extension UserList.Cell {
         // userLoginId
         userLoginId.add(into: contentView)
             .leading(16)
-            .trailing(16)
+//            .trailing(16)
+            .trailing(16, relation: .greaterThanOrEqual)
             .top(11)
             .bottom(11)
             .done()

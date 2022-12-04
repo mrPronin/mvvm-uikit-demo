@@ -52,26 +52,6 @@ extension UserList {
             $0.isHidden = true
             // TODO: $0.tableHeaderView
         }
-        
-        let bannerView = UIView().then {
-            $0.isHidden = true
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.heightAnchor.constraint(equalToConstant: 30).isActive = true
-            $0.backgroundColor = UIColor.UserList.loadingBanner
-            UILabel().then {
-                $0.translatesAutoresizingMaskIntoConstraints = false
-                $0.text = "Loading data from server..."
-                $0.textColor = .white
-                $0.font = .systemFont(ofSize: 14)
-                $0.textAlignment = .center
-            }
-            .add(into: $0)
-            .leading()
-            .trailing()
-            .top()
-            .bottom()
-            .done()
-        }
 
         // MARK: - Private
         let viewModel: UserListViewModel
@@ -102,21 +82,10 @@ extension UserList.ViewController {
             .bind(subscriber: tableView.rowsSubscriber(cellIdentifier: UserList.Cell.identifier, cellType: UserList.Cell.self, cellConfig: { cell, _, model in
                 cell.configure(with: model)
             })).store(in: &subscriptions)
-        
-        // loadingBanner
-        output.loadingBanner
-            .sink { [weak self] showLoadingBanner in
-                self?.view.layoutIfNeeded()
-                self?.bannerView.isHidden = !showLoadingBanner
-                UIView.animate(withDuration: 0.3) { [weak self] in
-                    self?.view.layoutIfNeeded()
-                }
-            }.store(in: &subscriptions)
 
         // activityIndicator
         output.activityIndicator
             .sink { [weak self] showActivityIndicator in
-                LOG("showActivityIndicator: \(showActivityIndicator)")
                 if showActivityIndicator {
                     self?.tableView.isHidden = true
                     self?.view.showActivityIndicator(.activityIndicator, message: "Loading list")
@@ -140,7 +109,6 @@ extension UserList.ViewController {
             .bottom(toSafeArea: true)
             .done()
         
-        stackView.addArrangedSubview(bannerView)
         stackView.addArrangedSubview(tableView)
     }
 

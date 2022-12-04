@@ -25,7 +25,6 @@ extension UserList.ViewModel {
         let userList: AnyPublisher<[UserList.Model], Never>
         let error: AnyPublisher<Error, Never>
         let activityIndicator: AnyPublisher<Bool, Never>
-        let loadingBanner: AnyPublisher<Bool, Never>
     }
 }
 
@@ -36,8 +35,7 @@ extension UserList.ViewModel {
             return UserList.ViewModel.Output(
                 userList: userList(input),
                 error: errorSubject.eraseToAnyPublisher(),
-                activityIndicator: activityIndicatorSubject.eraseToAnyPublisher(),
-                loadingBanner: loadingBannerSubject.eraseToAnyPublisher()
+                activityIndicator: activityIndicatorSubject.eraseToAnyPublisher()
             )
         }
         
@@ -49,20 +47,20 @@ extension UserList.ViewModel {
         func userList(_ input: UserList.ViewModel.Input) -> AnyPublisher<[UserList.Model], Never> {
             return input.load
                 .handleEvents(receiveOutput: { _ in
-                    // show activity indicator
+                    // show activity indicator and loading banner
                     self.activityIndicatorSubject.send(true)
                 })
                 .flatMap { _ in self.userListService.userList}
                 .receive(on: DispatchQueue.main)
-                .delay(for: .seconds(5), scheduler: DispatchQueue.main)
+                .delay(for: .seconds(0.5), scheduler: DispatchQueue.main)
                 .handleEvents(receiveOutput: { list in
-                    // hide activity indicator
+                    // hide activity indicator and loading banner
                     self.activityIndicatorSubject.send(false)
+
                 })
                 .catch { error -> AnyPublisher<[UserList.Model], Never> in
                     DispatchQueue.main.async {
                         self.activityIndicatorSubject.send(false)
-                        self.loadingBannerSubject.send(false)
                         self.errorSubject.send(error)
                     }
                     return Empty().eraseToAnyPublisher()
