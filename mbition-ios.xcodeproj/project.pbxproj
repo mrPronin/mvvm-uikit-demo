@@ -25,6 +25,8 @@
 		09907A8A293CC58000BA7148 /* UserList+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A89293CC58000BA7148 /* UserList+Model.swift */; };
 		09907A8D293CC79A00BA7148 /* UserList+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A8C293CC79A00BA7148 /* UserList+ViewModel.swift */; };
 		09907A8F293CC7B500BA7148 /* UserDetails+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A8E293CC7B500BA7148 /* UserDetails+ViewModel.swift */; };
+		09907A95293CDF5E00BA7148 /* UserList+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A94293CDF5E00BA7148 /* UserList+Router.swift */; };
+		09907A97293CE1A600BA7148 /* UserList+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A96293CE1A600BA7148 /* UserList+ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		09907A89293CC58000BA7148 /* UserList+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserList+Model.swift"; sourceTree = "<group>"; };
 		09907A8C293CC79A00BA7148 /* UserList+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserList+ViewModel.swift"; sourceTree = "<group>"; };
 		09907A8E293CC7B500BA7148 /* UserDetails+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+ViewModel.swift"; sourceTree = "<group>"; };
+		09907A94293CDF5E00BA7148 /* UserList+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserList+Router.swift"; sourceTree = "<group>"; };
+		09907A96293CE1A600BA7148 /* UserList+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserList+ViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +109,11 @@
 				09907A44293CBA9000BA7148 /* ViewController.swift */,
 				09907A70293CBD8D00BA7148 /* Constants.swift */,
 				09907A72293CBE4900BA7148 /* Appearance */,
+				09907A93293CDDFD00BA7148 /* Namespace */,
 				09907A79293CBFB600BA7148 /* Service */,
 				09907A86293CC36100BA7148 /* Model */,
 				09907A8B293CC76800BA7148 /* ViewModel */,
+				09907A90293CDD0900BA7148 /* Scene */,
 				09907A75293CBF0300BA7148 /* Helper */,
 				09907A46293CBA9000BA7148 /* Main.storyboard */,
 				09907A49293CBA9100BA7148 /* Assets.xcassets */,
@@ -171,7 +177,6 @@
 		09907A7D293CC1AF00BA7148 /* UserList */ = {
 			isa = PBXGroup;
 			children = (
-				09907A7E293CC1CA00BA7148 /* UserList.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -179,7 +184,6 @@
 		09907A80293CC1ED00BA7148 /* UserDetails */ = {
 			isa = PBXGroup;
 			children = (
-				09907A81293CC1FC00BA7148 /* UserDetails.swift */,
 			);
 			path = UserDetails;
 			sourceTree = "<group>";
@@ -208,6 +212,40 @@
 				09907A8E293CC7B500BA7148 /* UserDetails+ViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		09907A90293CDD0900BA7148 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				09907A91293CDDAC00BA7148 /* UserList */,
+				09907A92293CDDB800BA7148 /* UserDetails */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		09907A91293CDDAC00BA7148 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				09907A94293CDF5E00BA7148 /* UserList+Router.swift */,
+				09907A96293CE1A600BA7148 /* UserList+ViewController.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		09907A92293CDDB800BA7148 /* UserDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserDetails;
+			sourceTree = "<group>";
+		};
+		09907A93293CDDFD00BA7148 /* Namespace */ = {
+			isa = PBXGroup;
+			children = (
+				09907A7E293CC1CA00BA7148 /* UserList.swift */,
+				09907A81293CC1FC00BA7148 /* UserDetails.swift */,
+			);
+			path = Namespace;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +352,7 @@
 				09907A8F293CC7B500BA7148 /* UserDetails+ViewModel.swift in Sources */,
 				09907A45293CBA9000BA7148 /* ViewController.swift in Sources */,
 				09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */,
+				09907A95293CDF5E00BA7148 /* UserList+Router.swift in Sources */,
 				09907A82293CC1FC00BA7148 /* UserDetails.swift in Sources */,
 				09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */,
 				09907A78293CBF3500BA7148 /* UIColor+hex.swift in Sources */,
@@ -323,6 +362,7 @@
 				09907A88293CC3DF00BA7148 /* UserDetails+Model.swift in Sources */,
 				09907A7C293CC16900BA7148 /* Network.swift in Sources */,
 				09907A8A293CC58000BA7148 /* UserList+Model.swift in Sources */,
+				09907A97293CE1A600BA7148 /* UserList+ViewController.swift in Sources */,
 				09907A71293CBD8D00BA7148 /* Constants.swift in Sources */,
 				09907A8D293CC79A00BA7148 /* UserList+ViewModel.swift in Sources */,
 			);
