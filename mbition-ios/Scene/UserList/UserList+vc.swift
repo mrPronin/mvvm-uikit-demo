@@ -13,7 +13,13 @@ extension UserList {
         let testBundle = Bundle(for: UserList.ViewController.self)
         let path = testBundle.path(forResource: "user-list", ofType: "json")!
         let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-        let userList = try? JSONDecoder().decode([UserList.Model].self, from: data!)
+        var userList: [UserList.Model] = []
+        do {
+            userList = try JSONDecoder().decode([UserList.Model].self, from: data!)
+        } catch {
+            LOG(error)
+        }
+//        LOG(userList)
         // mock
         
         let userListService = UserList.Service.Mock()
