@@ -37,8 +37,6 @@
 		09907A4E293CBA9100BA7148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09907A53293CBA9100BA7148 /* mbition-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mbition-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09907A57293CBA9100BA7148 /* mbition_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbition_iosTests.swift; sourceTree = "<group>"; };
-		09907A61293CBA9100BA7148 /* mbition_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbition_iosUITests.swift; sourceTree = "<group>"; };
-		09907A63293CBA9100BA7148 /* mbition_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbition_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +62,6 @@
 			children = (
 				09907A3F293CBA9000BA7148 /* mbition-ios */,
 				09907A56293CBA9100BA7148 /* mbition-iosTests */,
-				09907A60293CBA9100BA7148 /* mbition-iosUITests */,
 				09907A3E293CBA9000BA7148 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,15 +95,6 @@
 				09907A57293CBA9100BA7148 /* mbition_iosTests.swift */,
 			);
 			path = "mbition-iosTests";
-			sourceTree = "<group>";
-		};
-		09907A60293CBA9100BA7148 /* mbition-iosUITests */ = {
-			isa = PBXGroup;
-			children = (
-				09907A61293CBA9100BA7148 /* mbition_iosUITests.swift */,
-				09907A63293CBA9100BA7148 /* mbition_iosUITestsLaunchTests.swift */,
-			);
-			path = "mbition-iosUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
