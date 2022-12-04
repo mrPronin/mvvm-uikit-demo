@@ -29,7 +29,7 @@ extension UserList.ViewModel {
     }
 }
 
-// Implementation
+// Implement view model
 extension UserList.ViewModel {
     struct Implementation: UserListViewModel {
         func transform(input: UserList.ViewModel.Input) -> UserList.ViewModel.Output {
@@ -42,8 +42,12 @@ extension UserList.ViewModel {
         }
         
         // MARK: - Init
+        init(userListService: UserListService) {
+            self.userListService = userListService
+        }
         // MARK: - Logic
         // MARK: - Dependency
+        private let userListService: UserListService
         // MARK: - Private
     }
 }

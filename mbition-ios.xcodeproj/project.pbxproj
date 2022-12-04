@@ -30,6 +30,13 @@
 		09907A9A293CE92500BA7148 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A99293CE92500BA7148 /* Then.swift */; };
 		09907A9D293CEC3200BA7148 /* ChainLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A9C293CEC3200BA7148 /* ChainLayout.swift */; };
 		09907A9F293CEC5400BA7148 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A9E293CEC5400BA7148 /* UIViewExtension.swift */; };
+		09907AA3293CF0BD00BA7148 /* UserList+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AA2293CF0BD00BA7148 /* UserList+Service.swift */; };
+		09907AA5293CF3F300BA7148 /* UserList+Service+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AA4293CF3F300BA7148 /* UserList+Service+Mock.swift */; };
+		09907AA7293CF53A00BA7148 /* user-list.json in Resources */ = {isa = PBXBuildFile; fileRef = 09907AA6293CF53A00BA7148 /* user-list.json */; };
+		09907AA8293CF53A00BA7148 /* user-list.json in Resources */ = {isa = PBXBuildFile; fileRef = 09907AA6293CF53A00BA7148 /* user-list.json */; };
+		09907AA9293CF55800BA7148 /* UserList+Service+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AA4293CF3F300BA7148 /* UserList+Service+Mock.swift */; };
+		09907AAB293CF67C00BA7148 /* UserList+vc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AAA293CF67C00BA7148 /* UserList+vc.swift */; };
+		09907AAC293CF67C00BA7148 /* UserList+vc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AAA293CF67C00BA7148 /* UserList+vc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +76,10 @@
 		09907A99293CE92500BA7148 /* Then.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
 		09907A9C293CEC3200BA7148 /* ChainLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainLayout.swift; sourceTree = "<group>"; };
 		09907A9E293CEC5400BA7148 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		09907AA2293CF0BD00BA7148 /* UserList+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserList+Service.swift"; sourceTree = "<group>"; };
+		09907AA4293CF3F300BA7148 /* UserList+Service+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserList+Service+Mock.swift"; sourceTree = "<group>"; };
+		09907AA6293CF53A00BA7148 /* user-list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "user-list.json"; sourceTree = SOURCE_ROOT; };
+		09907AAA293CF67C00BA7148 /* UserList+vc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserList+vc.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +143,7 @@
 		09907A56293CBA9100BA7148 /* mbition-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				09907AA0293CF06200BA7148 /* Service */,
 				09907A57293CBA9100BA7148 /* mbition_iosTests.swift */,
 			);
 			path = "mbition-iosTests";
@@ -185,6 +197,7 @@
 		09907A7D293CC1AF00BA7148 /* UserList */ = {
 			isa = PBXGroup;
 			children = (
+				09907AA2293CF0BD00BA7148 /* UserList+Service.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -234,6 +247,7 @@
 		09907A91293CDDAC00BA7148 /* UserList */ = {
 			isa = PBXGroup;
 			children = (
+				09907AAA293CF67C00BA7148 /* UserList+vc.swift */,
 				09907A94293CDF5E00BA7148 /* UserList+Router.swift */,
 				09907A96293CE1A600BA7148 /* UserList+ViewController.swift */,
 			);
@@ -271,6 +285,23 @@
 				09907A9E293CEC5400BA7148 /* UIViewExtension.swift */,
 			);
 			path = ChainLayout;
+			sourceTree = "<group>";
+		};
+		09907AA0293CF06200BA7148 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				09907AA1293CF08A00BA7148 /* UserList */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		09907AA1293CF08A00BA7148 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				09907AA4293CF3F300BA7148 /* UserList+Service+Mock.swift */,
+				09907AA6293CF53A00BA7148 /* user-list.json */,
+			);
+			path = UserList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +387,7 @@
 			files = (
 				09907A4D293CBA9100BA7148 /* LaunchScreen.storyboard in Resources */,
 				09907A4A293CBA9100BA7148 /* Assets.xcassets in Resources */,
+				09907AA7293CF53A00BA7148 /* user-list.json in Resources */,
 				09907A48293CBA9000BA7148 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -364,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09907AA8293CF53A00BA7148 /* user-list.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +407,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09907AA3293CF0BD00BA7148 /* UserList+Service.swift in Sources */,
+				09907AAB293CF67C00BA7148 /* UserList+vc.swift in Sources */,
 				09907A8F293CC7B500BA7148 /* UserDetails+ViewModel.swift in Sources */,
 				09907A45293CBA9000BA7148 /* ViewController.swift in Sources */,
 				09907A9A293CE92500BA7148 /* Then.swift in Sources */,
@@ -384,6 +419,7 @@
 				09907A78293CBF3500BA7148 /* UIColor+hex.swift in Sources */,
 				09907A85293CC23C00BA7148 /* Logger.swift in Sources */,
 				09907A7F293CC1CA00BA7148 /* UserList.swift in Sources */,
+				09907AA9293CF55800BA7148 /* UserList+Service+Mock.swift in Sources */,
 				09907A74293CBE5D00BA7148 /* ColorDefines.swift in Sources */,
 				09907A88293CC3DF00BA7148 /* UserDetails+Model.swift in Sources */,
 				09907A7C293CC16900BA7148 /* Network.swift in Sources */,
@@ -400,6 +436,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09907AAC293CF67C00BA7148 /* UserList+vc.swift in Sources */,
+				09907AA5293CF3F300BA7148 /* UserList+Service+Mock.swift in Sources */,
 				09907A58293CBA9100BA7148 /* mbition_iosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
