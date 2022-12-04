@@ -21,6 +21,7 @@
 		09907A7F293CC1CA00BA7148 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A7E293CC1CA00BA7148 /* UserList.swift */; };
 		09907A82293CC1FC00BA7148 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A81293CC1FC00BA7148 /* UserDetails.swift */; };
 		09907A85293CC23C00BA7148 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A84293CC23C00BA7148 /* Logger.swift */; };
+		09907A88293CC3DF00BA7148 /* UserDetails+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A87293CC3DF00BA7148 /* UserDetails+Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		09907A7E293CC1CA00BA7148 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
 		09907A81293CC1FC00BA7148 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		09907A84293CC23C00BA7148 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		09907A87293CC3DF00BA7148 /* UserDetails+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+Model.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				09907A70293CBD8D00BA7148 /* Constants.swift */,
 				09907A72293CBE4900BA7148 /* Appearance */,
 				09907A79293CBFB600BA7148 /* Service */,
+				09907A86293CC36100BA7148 /* Model */,
 				09907A75293CBF0300BA7148 /* Helper */,
 				09907A46293CBA9000BA7148 /* Main.storyboard */,
 				09907A49293CBA9100BA7148 /* Assets.xcassets */,
@@ -180,6 +183,14 @@
 				09907A84293CC23C00BA7148 /* Logger.swift */,
 			);
 			path = Logger;
+			sourceTree = "<group>";
+		};
+		09907A86293CC36100BA7148 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09907A87293CC3DF00BA7148 /* UserDetails+Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +302,7 @@
 				09907A85293CC23C00BA7148 /* Logger.swift in Sources */,
 				09907A7F293CC1CA00BA7148 /* UserList.swift in Sources */,
 				09907A74293CBE5D00BA7148 /* ColorDefines.swift in Sources */,
+				09907A88293CC3DF00BA7148 /* UserDetails+Model.swift in Sources */,
 				09907A7C293CC16900BA7148 /* Network.swift in Sources */,
 				09907A71293CBD8D00BA7148 /* Constants.swift in Sources */,
 			);
