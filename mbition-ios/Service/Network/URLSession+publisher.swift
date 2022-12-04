@@ -11,7 +11,7 @@ import Combine
 extension URLSession {
     func publisher<Kind, Response, Payload>(
         for endpoint: Endpoint<Kind, Response, Payload>,
-        using requestData: Kind.RequestData,
+        using requestData: Kind.RequestData? = nil,
         decoder: JSONDecoder = .init()
     ) -> AnyPublisher<Response, Error> {
         guard let request = endpoint.makeRequest(with: requestData) else {

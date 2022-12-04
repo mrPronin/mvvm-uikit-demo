@@ -41,7 +41,7 @@ enum EndpointKinds {
 }
 
 extension Endpoint {
-    func makeRequest(with data: Kind.RequestData, host: URLHost = .default) -> URLRequest? {
+    func makeRequest(with data: Kind.RequestData?, host: URLHost = .default) -> URLRequest? {
         var components = URLComponents()
         components.scheme = "https"
         components.host = host.rawValue
@@ -57,7 +57,9 @@ extension Endpoint {
         }
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        Kind.prepare(&request, with: data)
+        if let data = data {
+            Kind.prepare(&request, with: data)
+        }
         return request
     }
 }

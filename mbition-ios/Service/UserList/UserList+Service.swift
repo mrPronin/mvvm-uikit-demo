@@ -21,7 +21,8 @@ extension UserList.Service {
     struct Implementation: UserListService {
         // MARK: - Public
         var userList: AnyPublisher<[UserList.Model], Error> {
-            return Empty().eraseToAnyPublisher()
+            return URLSession.shared.publisher(for: .userList)
+                .eraseToAnyPublisher()
         }
         
         // MARK: - Init
