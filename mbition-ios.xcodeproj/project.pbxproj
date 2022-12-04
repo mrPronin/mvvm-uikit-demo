@@ -44,6 +44,13 @@
 		09907AC1293D0A6700BA7148 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AC0293D0A6700BA7148 /* Section.swift */; };
 		09907AC4293D0B0700BA7148 /* Publisher+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AC3293D0B0700BA7148 /* Publisher+Bind.swift */; };
 		09907AC8293D122000BA7148 /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AC7293D122000BA7148 /* UIView+ActivityIndicator.swift */; };
+		09907ACB293D271F00BA7148 /* Network+handleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907ACA293D271F00BA7148 /* Network+handleError.swift */; };
+		09907ACD293D281000BA7148 /* Network+httpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907ACC293D281000BA7148 /* Network+httpMethod.swift */; };
+		09907ACF293D289500BA7148 /* URLHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907ACE293D289500BA7148 /* URLHost.swift */; };
+		09907AD2293D29A500BA7148 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AD1293D29A500BA7148 /* Endpoint.swift */; };
+		09907AD4293D29DF00BA7148 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AD3293D29DF00BA7148 /* AccessToken.swift */; };
+		09907AD6293D2A0600BA7148 /* Endpoint+userList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AD5293D2A0600BA7148 /* Endpoint+userList.swift */; };
+		09907AD8293D2AA900BA7148 /* URLSession+publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AD7293D2AA900BA7148 /* URLSession+publisher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +102,13 @@
 		09907AC0293D0A6700BA7148 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		09907AC3293D0B0700BA7148 /* Publisher+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Bind.swift"; sourceTree = "<group>"; };
 		09907AC7293D122000BA7148 /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
+		09907ACA293D271F00BA7148 /* Network+handleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+handleError.swift"; sourceTree = "<group>"; };
+		09907ACC293D281000BA7148 /* Network+httpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+httpMethod.swift"; sourceTree = "<group>"; };
+		09907ACE293D289500BA7148 /* URLHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHost.swift; sourceTree = "<group>"; };
+		09907AD1293D29A500BA7148 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		09907AD3293D29DF00BA7148 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		09907AD5293D2A0600BA7148 /* Endpoint+userList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+userList.swift"; sourceTree = "<group>"; };
+		09907AD7293D2AA900BA7148 /* URLSession+publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+publisher.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +222,12 @@
 		09907A7A293CC13D00BA7148 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				09907A7B293CC16900BA7148 /* Network.swift */,
+				09907ACA293D271F00BA7148 /* Network+handleError.swift */,
+				09907ACC293D281000BA7148 /* Network+httpMethod.swift */,
+				09907ACE293D289500BA7148 /* URLHost.swift */,
+				09907AD3293D29DF00BA7148 /* AccessToken.swift */,
+				09907AD7293D2AA900BA7148 /* URLSession+publisher.swift */,
+				09907AD0293D292900BA7148 /* Endpoint */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -286,6 +305,7 @@
 			children = (
 				09907A7E293CC1CA00BA7148 /* UserList.swift */,
 				09907A81293CC1FC00BA7148 /* UserDetails.swift */,
+				09907A7B293CC16900BA7148 /* Network.swift */,
 			);
 			path = Namespace;
 			sourceTree = "<group>";
@@ -365,6 +385,15 @@
 				09907AC7293D122000BA7148 /* UIView+ActivityIndicator.swift */,
 			);
 			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		09907AD0293D292900BA7148 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				09907AD1293D29A500BA7148 /* Endpoint.swift */,
+				09907AD5293D2A0600BA7148 /* Endpoint+userList.swift */,
+			);
+			path = Endpoint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,14 +503,18 @@
 				09907AAB293CF67C00BA7148 /* UserList+vc.swift in Sources */,
 				09907A8F293CC7B500BA7148 /* UserDetails+ViewModel.swift in Sources */,
 				09907A45293CBA9000BA7148 /* ViewController.swift in Sources */,
+				09907AD8293D2AA900BA7148 /* URLSession+publisher.swift in Sources */,
+				09907ACF293D289500BA7148 /* URLHost.swift in Sources */,
 				09907A9A293CE92500BA7148 /* Then.swift in Sources */,
 				09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */,
 				09907A95293CDF5E00BA7148 /* UserList+Router.swift in Sources */,
 				09907A82293CC1FC00BA7148 /* UserDetails.swift in Sources */,
 				09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */,
+				09907ACD293D281000BA7148 /* Network+httpMethod.swift in Sources */,
 				09907ABB293D09BA00BA7148 /* UITableView+Subscribers.swift in Sources */,
 				09907A78293CBF3500BA7148 /* UIColor+hex.swift in Sources */,
 				09907AB3293D051300BA7148 /* String+className.swift in Sources */,
+				09907AD4293D29DF00BA7148 /* AccessToken.swift in Sources */,
 				09907AC4293D0B0700BA7148 /* Publisher+Bind.swift in Sources */,
 				09907A85293CC23C00BA7148 /* Logger.swift in Sources */,
 				09907A7F293CC1CA00BA7148 /* UserList.swift in Sources */,
@@ -497,8 +530,11 @@
 				09907A8A293CC58000BA7148 /* UserList+Model.swift in Sources */,
 				09907A97293CE1A600BA7148 /* UserList+ViewController.swift in Sources */,
 				09907A71293CBD8D00BA7148 /* Constants.swift in Sources */,
+				09907ACB293D271F00BA7148 /* Network+handleError.swift in Sources */,
 				09907ABE293D0A0B00BA7148 /* TableViewItemsController.swift in Sources */,
 				09907AB7293D057400BA7148 /* UserList+Cell.swift in Sources */,
+				09907AD6293D2A0600BA7148 /* Endpoint+userList.swift in Sources */,
+				09907AD2293D29A500BA7148 /* Endpoint.swift in Sources */,
 				09907A8D293CC79A00BA7148 /* UserList+ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
