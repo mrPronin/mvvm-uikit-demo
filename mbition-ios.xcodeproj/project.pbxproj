@@ -14,6 +14,13 @@
 		09907A4A293CBA9100BA7148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09907A49293CBA9100BA7148 /* Assets.xcassets */; };
 		09907A4D293CBA9100BA7148 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09907A4B293CBA9100BA7148 /* LaunchScreen.storyboard */; };
 		09907A58293CBA9100BA7148 /* mbition_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A57293CBA9100BA7148 /* mbition_iosTests.swift */; };
+		09907A71293CBD8D00BA7148 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A70293CBD8D00BA7148 /* Constants.swift */; };
+		09907A74293CBE5D00BA7148 /* ColorDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A73293CBE5D00BA7148 /* ColorDefines.swift */; };
+		09907A78293CBF3500BA7148 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A77293CBF3500BA7148 /* UIColor+hex.swift */; };
+		09907A7C293CC16900BA7148 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A7B293CC16900BA7148 /* Network.swift */; };
+		09907A7F293CC1CA00BA7148 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A7E293CC1CA00BA7148 /* UserList.swift */; };
+		09907A82293CC1FC00BA7148 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A81293CC1FC00BA7148 /* UserDetails.swift */; };
+		09907A85293CC23C00BA7148 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A84293CC23C00BA7148 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +44,13 @@
 		09907A4E293CBA9100BA7148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09907A53293CBA9100BA7148 /* mbition-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mbition-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09907A57293CBA9100BA7148 /* mbition_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbition_iosTests.swift; sourceTree = "<group>"; };
+		09907A70293CBD8D00BA7148 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		09907A73293CBE5D00BA7148 /* ColorDefines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDefines.swift; sourceTree = "<group>"; };
+		09907A77293CBF3500BA7148 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		09907A7B293CC16900BA7148 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		09907A7E293CC1CA00BA7148 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
+		09907A81293CC1FC00BA7148 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		09907A84293CC23C00BA7148 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +95,10 @@
 				09907A40293CBA9000BA7148 /* AppDelegate.swift */,
 				09907A42293CBA9000BA7148 /* SceneDelegate.swift */,
 				09907A44293CBA9000BA7148 /* ViewController.swift */,
+				09907A70293CBD8D00BA7148 /* Constants.swift */,
+				09907A72293CBE4900BA7148 /* Appearance */,
+				09907A79293CBFB600BA7148 /* Service */,
+				09907A75293CBF0300BA7148 /* Helper */,
 				09907A46293CBA9000BA7148 /* Main.storyboard */,
 				09907A49293CBA9100BA7148 /* Assets.xcassets */,
 				09907A4B293CBA9100BA7148 /* LaunchScreen.storyboard */,
@@ -95,6 +113,73 @@
 				09907A57293CBA9100BA7148 /* mbition_iosTests.swift */,
 			);
 			path = "mbition-iosTests";
+			sourceTree = "<group>";
+		};
+		09907A72293CBE4900BA7148 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				09907A73293CBE5D00BA7148 /* ColorDefines.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		09907A75293CBF0300BA7148 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				09907A76293CBF2A00BA7148 /* UIColor */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		09907A76293CBF2A00BA7148 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				09907A77293CBF3500BA7148 /* UIColor+hex.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		09907A79293CBFB600BA7148 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				09907A7A293CC13D00BA7148 /* Network */,
+				09907A7D293CC1AF00BA7148 /* UserList */,
+				09907A80293CC1ED00BA7148 /* UserDetails */,
+				09907A83293CC22B00BA7148 /* Logger */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		09907A7A293CC13D00BA7148 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				09907A7B293CC16900BA7148 /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		09907A7D293CC1AF00BA7148 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				09907A7E293CC1CA00BA7148 /* UserList.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		09907A80293CC1ED00BA7148 /* UserDetails */ = {
+			isa = PBXGroup;
+			children = (
+				09907A81293CC1FC00BA7148 /* UserDetails.swift */,
+			);
+			path = UserDetails;
+			sourceTree = "<group>";
+		};
+		09907A83293CC22B00BA7148 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				09907A84293CC23C00BA7148 /* Logger.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +285,14 @@
 			files = (
 				09907A45293CBA9000BA7148 /* ViewController.swift in Sources */,
 				09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */,
+				09907A82293CC1FC00BA7148 /* UserDetails.swift in Sources */,
 				09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */,
+				09907A78293CBF3500BA7148 /* UIColor+hex.swift in Sources */,
+				09907A85293CC23C00BA7148 /* Logger.swift in Sources */,
+				09907A7F293CC1CA00BA7148 /* UserList.swift in Sources */,
+				09907A74293CBE5D00BA7148 /* ColorDefines.swift in Sources */,
+				09907A7C293CC16900BA7148 /* Network.swift in Sources */,
+				09907A71293CBD8D00BA7148 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
