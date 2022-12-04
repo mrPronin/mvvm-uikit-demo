@@ -22,6 +22,7 @@
 		09907A82293CC1FC00BA7148 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A81293CC1FC00BA7148 /* UserDetails.swift */; };
 		09907A85293CC23C00BA7148 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A84293CC23C00BA7148 /* Logger.swift */; };
 		09907A88293CC3DF00BA7148 /* UserDetails+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A87293CC3DF00BA7148 /* UserDetails+Model.swift */; };
+		09907A8A293CC58000BA7148 /* UserList+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A89293CC58000BA7148 /* UserList+Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		09907A81293CC1FC00BA7148 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		09907A84293CC23C00BA7148 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		09907A87293CC3DF00BA7148 /* UserDetails+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+Model.swift"; sourceTree = "<group>"; };
+		09907A89293CC58000BA7148 /* UserList+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserList+Model.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				09907A87293CC3DF00BA7148 /* UserDetails+Model.swift */,
+				09907A89293CC58000BA7148 /* UserList+Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				09907A74293CBE5D00BA7148 /* ColorDefines.swift in Sources */,
 				09907A88293CC3DF00BA7148 /* UserDetails+Model.swift in Sources */,
 				09907A7C293CC16900BA7148 /* Network.swift in Sources */,
+				09907A8A293CC58000BA7148 /* UserList+Model.swift in Sources */,
 				09907A71293CBD8D00BA7148 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
