@@ -34,10 +34,10 @@ extension UserList.ViewModel {
     struct Implementation: UserListViewModel {
         func transform(input: UserList.ViewModel.Input) -> UserList.ViewModel.Output {
             return UserList.ViewModel.Output(
-                userList: Empty().eraseToAnyPublisher(),
-                error: Empty().eraseToAnyPublisher(),
-                activityIndicator: Empty().eraseToAnyPublisher(),
-                loadingBanner: Empty().eraseToAnyPublisher()
+                userList: userList(input),
+                error: errorSubject.eraseToAnyPublisher(),
+                activityIndicator: activityIndicatorSubject.eraseToAnyPublisher(),
+                loadingBanner: loadingBannerSubject.eraseToAnyPublisher()
             )
         }
         
@@ -46,8 +46,36 @@ extension UserList.ViewModel {
             self.userListService = userListService
         }
         // MARK: - Logic
+        func userList(_ input: UserList.ViewModel.Input) -> AnyPublisher<[UserList.Model], Never> {
+            return input.load
+                .handleEvents(receiveOutput: { _ in
+                    // show activity indicator
+                    self.activityIndicatorSubject.send(true)
+                })
+                .flatMap { _ in self.userListService.userList}
+                .receive(on: DispatchQueue.main)
+                .delay(for: .seconds(5), scheduler: DispatchQueue.main)
+                .handleEvents(receiveOutput: { list in
+                    // hide activity indicator
+                    self.activityIndicatorSubject.send(false)
+                })
+                .catch { error -> AnyPublisher<[UserList.Model], Never> in
+                    DispatchQueue.main.async {
+                        self.activityIndicatorSubject.send(false)
+                        self.loadingBannerSubject.send(false)
+                        self.errorSubject.send(error)
+                    }
+                    return Empty().eraseToAnyPublisher()
+                }
+                .eraseToAnyPublisher()
+        }
+        
         // MARK: - Dependency
         private let userListService: UserListService
+        
         // MARK: - Private
+        private let errorSubject = PassthroughSubject<Error, Never>()
+        private let activityIndicatorSubject = PassthroughSubject<Bool, Never>()
+        private let loadingBannerSubject = PassthroughSubject<Bool, Never>()
     }
 }

@@ -22,9 +22,8 @@ extension UserList {
 //        LOG(userList)
         // mock
         
-        let userListService = UserList.Service.Mock()
-        
         // debug
+        let userListService = UserList.Service.Mock()
         userListService.userListArray = userList
         // debug
         
