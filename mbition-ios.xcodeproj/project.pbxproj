@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A40293CBA9000BA7148 /* AppDelegate.swift */; };
+		09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A42293CBA9000BA7148 /* SceneDelegate.swift */; };
+		09907A45293CBA9000BA7148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A44293CBA9000BA7148 /* ViewController.swift */; };
+		09907A48293CBA9000BA7148 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09907A46293CBA9000BA7148 /* Main.storyboard */; };
+		09907A4A293CBA9100BA7148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09907A49293CBA9100BA7148 /* Assets.xcassets */; };
+		09907A4D293CBA9100BA7148 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09907A4B293CBA9100BA7148 /* LaunchScreen.storyboard */; };
+		09907A58293CBA9100BA7148 /* mbition_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A57293CBA9100BA7148 /* mbition_iosTests.swift */; };
+		09907A62293CBA9100BA7148 /* mbition_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A61293CBA9100BA7148 /* mbition_iosUITests.swift */; };
+		09907A64293CBA9100BA7148 /* mbition_iosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A63293CBA9100BA7148 /* mbition_iosUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		09907A54293CBA9100BA7148 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09907A35293CBA9000BA7148 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09907A3C293CBA9000BA7148;
+			remoteInfo = "mbition-ios";
+		};
+		09907A5E293CBA9100BA7148 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09907A35293CBA9000BA7148 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 09907A3C293CBA9000BA7148;
+			remoteInfo = "mbition-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		09907A3D293CBA9000BA7148 /* mbition-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mbition-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09907A40293CBA9000BA7148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		09907A42293CBA9000BA7148 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		09907A44293CBA9000BA7148 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		09907A47293CBA9000BA7148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		09907A49293CBA9100BA7148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		09907A4C293CBA9100BA7148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		09907A4E293CBA9100BA7148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09907A53293CBA9100BA7148 /* mbition-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mbition-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09907A57293CBA9100BA7148 /* mbition_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbition_iosTests.swift; sourceTree = "<group>"; };
+		09907A5D293CBA9100BA7148 /* mbition-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mbition-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		09907A61293CBA9100BA7148 /* mbition_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbition_iosUITests.swift; sourceTree = "<group>"; };
+		09907A63293CBA9100BA7148 /* mbition_iosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbition_iosUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09907A3A293CBA9000BA7148 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09907A50293CBA9100BA7148 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09907A5A293CBA9100BA7148 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09907A34293CBA9000BA7148 = {
+			isa = PBXGroup;
+			children = (
+				09907A3F293CBA9000BA7148 /* mbition-ios */,
+				09907A56293CBA9100BA7148 /* mbition-iosTests */,
+				09907A60293CBA9100BA7148 /* mbition-iosUITests */,
+				09907A3E293CBA9000BA7148 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		09907A3E293CBA9000BA7148 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09907A3D293CBA9000BA7148 /* mbition-ios.app */,
+				09907A53293CBA9100BA7148 /* mbition-iosTests.xctest */,
+				09907A5D293CBA9100BA7148 /* mbition-iosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		09907A3F293CBA9000BA7148 /* mbition-ios */ = {
+			isa = PBXGroup;
+			children = (
+				09907A40293CBA9000BA7148 /* AppDelegate.swift */,
+				09907A42293CBA9000BA7148 /* SceneDelegate.swift */,
+				09907A44293CBA9000BA7148 /* ViewController.swift */,
+				09907A46293CBA9000BA7148 /* Main.storyboard */,
+				09907A49293CBA9100BA7148 /* Assets.xcassets */,
+				09907A4B293CBA9100BA7148 /* LaunchScreen.storyboard */,
+				09907A4E293CBA9100BA7148 /* Info.plist */,
+			);
+			path = "mbition-ios";
+			sourceTree = "<group>";
+		};
+		09907A56293CBA9100BA7148 /* mbition-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				09907A57293CBA9100BA7148 /* mbition_iosTests.swift */,
+			);
+			path = "mbition-iosTests";
+			sourceTree = "<group>";
+		};
+		09907A60293CBA9100BA7148 /* mbition-iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				09907A61293CBA9100BA7148 /* mbition_iosUITests.swift */,
+				09907A63293CBA9100BA7148 /* mbition_iosUITestsLaunchTests.swift */,
+			);
+			path = "mbition-iosUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		09907A3C293CBA9000BA7148 /* mbition-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09907A67293CBA9100BA7148 /* Build configuration list for PBXNativeTarget "mbition-ios" */;
+			buildPhases = (
+				09907A39293CBA9000BA7148 /* Sources */,
+				09907A3A293CBA9000BA7148 /* Frameworks */,
+				09907A3B293CBA9000BA7148 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "mbition-ios";
+			productName = "mbition-ios";
+			productReference = 09907A3D293CBA9000BA7148 /* mbition-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		09907A52293CBA9100BA7148 /* mbition-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09907A6A293CBA9100BA7148 /* Build configuration list for PBXNativeTarget "mbition-iosTests" */;
+			buildPhases = (
+				09907A4F293CBA9100BA7148 /* Sources */,
+				09907A50293CBA9100BA7148 /* Frameworks */,
+				09907A51293CBA9100BA7148 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09907A55293CBA9100BA7148 /* PBXTargetDependency */,
+			);
+			name = "mbition-iosTests";
+			productName = "mbition-iosTests";
+			productReference = 09907A53293CBA9100BA7148 /* mbition-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		09907A5C293CBA9100BA7148 /* mbition-iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09907A6D293CBA9100BA7148 /* Build configuration list for PBXNativeTarget "mbition-iosUITests" */;
+			buildPhases = (
+				09907A59293CBA9100BA7148 /* Sources */,
+				09907A5A293CBA9100BA7148 /* Frameworks */,
+				09907A5B293CBA9100BA7148 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09907A5F293CBA9100BA7148 /* PBXTargetDependency */,
+			);
+			name = "mbition-iosUITests";
+			productName = "mbition-iosUITests";
+			productReference = 09907A5D293CBA9100BA7148 /* mbition-iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09907A35293CBA9000BA7148 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					09907A3C293CBA9000BA7148 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					09907A52293CBA9100BA7148 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 09907A3C293CBA9000BA7148;
+					};
+					09907A5C293CBA9100BA7148 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 09907A3C293CBA9000BA7148;
+					};
+				};
+			};
+			buildConfigurationList = 09907A38293CBA9000BA7148 /* Build configuration list for PBXProject "mbition-ios" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 09907A34293CBA9000BA7148;
+			productRefGroup = 09907A3E293CBA9000BA7148 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09907A3C293CBA9000BA7148 /* mbition-ios */,
+				09907A52293CBA9100BA7148 /* mbition-iosTests */,
+				09907A5C293CBA9100BA7148 /* mbition-iosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		09907A3B293CBA9000BA7148 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09907A4D293CBA9100BA7148 /* LaunchScreen.storyboard in Resources */,
+				09907A4A293CBA9100BA7148 /* Assets.xcassets in Resources */,
+				09907A48293CBA9000BA7148 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09907A51293CBA9100BA7148 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09907A5B293CBA9100BA7148 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09907A39293CBA9000BA7148 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09907A45293CBA9000BA7148 /* ViewController.swift in Sources */,
+				09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */,
+				09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09907A4F293CBA9100BA7148 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09907A58293CBA9100BA7148 /* mbition_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		09907A59293CBA9100BA7148 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09907A62293CBA9100BA7148 /* mbition_iosUITests.swift in Sources */,
+				09907A64293CBA9100BA7148 /* mbition_iosUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		09907A55293CBA9100BA7148 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09907A3C293CBA9000BA7148 /* mbition-ios */;
+			targetProxy = 09907A54293CBA9100BA7148 /* PBXContainerItemProxy */;
+		};
+		09907A5F293CBA9100BA7148 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 09907A3C293CBA9000BA7148 /* mbition-ios */;
+			targetProxy = 09907A5E293CBA9100BA7148 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		09907A46293CBA9000BA7148 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09907A47293CBA9000BA7148 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		09907A4B293CBA9100BA7148 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				09907A4C293CBA9100BA7148 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		09907A65293CBA9100BA7148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		09907A66293CBA9100BA7148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		09907A68293CBA9100BA7148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q8M6V9HM9E;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "mbition-ios/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pronin.mbition-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		09907A69293CBA9100BA7148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q8M6V9HM9E;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "mbition-ios/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pronin.mbition-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		09907A6B293CBA9100BA7148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q8M6V9HM9E;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pronin.mbition-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mbition-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/mbition-ios";
+			};
+			name = Debug;
+		};
+		09907A6C293CBA9100BA7148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q8M6V9HM9E;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pronin.mbition-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mbition-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/mbition-ios";
+			};
+			name = Release;
+		};
+		09907A6E293CBA9100BA7148 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q8M6V9HM9E;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pronin.mbition-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "mbition-ios";
+			};
+			name = Debug;
+		};
+		09907A6F293CBA9100BA7148 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q8M6V9HM9E;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pronin.mbition-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "mbition-ios";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09907A38293CBA9000BA7148 /* Build configuration list for PBXProject "mbition-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09907A65293CBA9100BA7148 /* Debug */,
+				09907A66293CBA9100BA7148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09907A67293CBA9100BA7148 /* Build configuration list for PBXNativeTarget "mbition-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09907A68293CBA9100BA7148 /* Debug */,
+				09907A69293CBA9100BA7148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09907A6A293CBA9100BA7148 /* Build configuration list for PBXNativeTarget "mbition-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09907A6B293CBA9100BA7148 /* Debug */,
+				09907A6C293CBA9100BA7148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09907A6D293CBA9100BA7148 /* Build configuration list for PBXNativeTarget "mbition-iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09907A6E293CBA9100BA7148 /* Debug */,
+				09907A6F293CBA9100BA7148 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09907A35293CBA9000BA7148 /* Project object */;
+}
