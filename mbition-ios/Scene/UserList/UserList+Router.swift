@@ -8,13 +8,13 @@
 import Foundation
 
 protocol UserListRouter {
-    func navigateToUser(with userLoginId: String)
+    func navigateToUser(with userListItem: UserList.Model)
 }
 
 extension UserList {
     struct Router: UserListRouter {
         // MARK: - Public API
-        func navigateToUser(with userLoginId: String) {
+        func navigateToUser(with userListItem: UserList.Model) {
             // TODO: implement navigation
         }
         // MARK: - Init
