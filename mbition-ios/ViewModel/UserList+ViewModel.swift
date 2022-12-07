@@ -46,12 +46,12 @@ extension UserList.ViewModel {
         // MARK: - Logic
         func userList(_ input: UserList.ViewModel.Input) -> AnyPublisher<[UserList.Model], Never> {
             return input.load
+                .subscribe(on: DispatchQueue.global(qos: .default))
                 .handleEvents(receiveOutput: { _ in
                     // show activity indicator and loading banner
                     self.activityIndicatorSubject.send(true)
                 })
                 .flatMap { _ in self.userListService.userList}
-                .subscribe(on: DispatchQueue.global(qos: .background))
                 .receive(on: DispatchQueue.main)
                 // debug
 //                .delay(for: .seconds(1), scheduler: DispatchQueue.main)

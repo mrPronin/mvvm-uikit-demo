@@ -107,7 +107,8 @@ extension UserList.ViewController {
                     self?.tableView.isHidden = false
                     self?.view.hideActivityIndicator()
                 }
-            }.store(in: &subscriptions)
+            }
+            .store(in: &subscriptions)
 
     }
     
