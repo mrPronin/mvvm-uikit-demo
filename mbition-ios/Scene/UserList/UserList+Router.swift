@@ -14,8 +14,9 @@ protocol UserListRouter {
 extension UserList {
     struct Router: UserListRouter {
         // MARK: - Public API
-        func navigateToUser(with userListItem: UserList.Model) {
-            // TODO: implement navigation
+        func navigateToUser(with userListModel: UserList.Model) {
+            let detailsViewController = UserDetails.viewController(with: userListModel)
+            viewController?.navigationController?.pushViewController(detailsViewController, animated: true)
         }
         // MARK: - Init
         init(viewController: UserList.ViewController) {

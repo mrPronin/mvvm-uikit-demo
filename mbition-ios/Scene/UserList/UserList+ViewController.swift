@@ -72,7 +72,6 @@ extension UserList.ViewController: UITableViewDelegate {
         DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.3) {
             tableView.isUserInteractionEnabled = true
         }
-        LOG("item: \(item)")
     }
 }
 

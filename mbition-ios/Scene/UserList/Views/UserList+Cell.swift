@@ -41,6 +41,7 @@ extension UserList {
 extension UserList.Cell {
     private func setupOnLoad() {
         contentView.backgroundColor = .background
+        accessoryType = .disclosureIndicator
         
         // userLoginId
         userLoginId.add(into: contentView)

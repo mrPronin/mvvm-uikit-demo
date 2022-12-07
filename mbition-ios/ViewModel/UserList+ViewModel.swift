@@ -53,7 +53,7 @@ extension UserList.ViewModel {
                 .flatMap { _ in self.userListService.userList}
                 .receive(on: DispatchQueue.main)
                 // debug
-                .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+//                .delay(for: .seconds(1), scheduler: DispatchQueue.main)
                 // debug
                 .handleEvents(receiveOutput: { list in
                     // hide activity indicator and loading banner
@@ -76,6 +76,5 @@ extension UserList.ViewModel {
         // MARK: - Private
         private let errorSubject = PassthroughSubject<Error, Never>()
         private let activityIndicatorSubject = PassthroughSubject<Bool, Never>()
-        private let loadingBannerSubject = PassthroughSubject<Bool, Never>()
     }
 }
