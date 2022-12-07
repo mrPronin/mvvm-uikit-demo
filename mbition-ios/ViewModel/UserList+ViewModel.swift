@@ -51,6 +51,7 @@ extension UserList.ViewModel {
                     self.activityIndicatorSubject.send(true)
                 })
                 .flatMap { _ in self.userListService.userList}
+                .subscribe(on: DispatchQueue.global(qos: .background))
                 .receive(on: DispatchQueue.main)
                 // debug
 //                .delay(for: .seconds(1), scheduler: DispatchQueue.main)
