@@ -93,6 +93,9 @@ extension UserList.ViewController {
         output.userList
             .handleEvents(receiveOutput: { [weak self] userList in
                 self?.userList = userList
+                // debug
+                self?.showBanner(with: "Test for banner")
+                // debug
             })
             .bind(subscriber: tableView.rowsSubscriber(cellIdentifier: UserList.Cell.identifier, cellType: UserList.Cell.self, cellConfig: { cell, _, model in
                 cell.configure(with: model)

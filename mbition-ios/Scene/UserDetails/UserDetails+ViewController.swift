@@ -80,12 +80,23 @@ extension UserDetails.ViewController {
             }
             .store(in: &subscriptions)
         
+        // debug
+//        output.userDetails
+//            .map(\.name)
+//            .assign(to: \.text, on: profileURLView.value)
+//            .store(in: &subscriptions)
+        // debug
+        
         // userDetails
         output.userDetails
             .sink { [weak self] userDetails in
                 if let heightConstraint = self?.detailsSectionView.constraint(forAttribute: .height) {
                     heightConstraint.isActive = false
                 }
+                // debug
+                self?.showBanner(with: "Test for banner")
+                // debug
+                // TODO: refactor multiple similar calls
                 self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
                     $0.title.text = "Name:"
                     $0.value.text = userDetails.name

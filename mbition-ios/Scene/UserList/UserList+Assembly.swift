@@ -10,7 +10,7 @@ import UIKit
 extension UserList {
     static var vc: UIViewController {
         // debug
-        /*
+        
         // mock
         let testBundle = Bundle(for: UserList.ViewController.self)
         let path = testBundle.path(forResource: "user-list", ofType: "json")!
@@ -27,10 +27,10 @@ extension UserList {
         let userListService = UserList.Service.Mock()
         userListService.userListArray = userList
         
-        */
+        
         // debug
         
-        let userListService = UserList.Service.Implementation()
+//        let userListService = UserList.Service.Implementation()
         let viewModel = UserList.ViewModel.Implementation(userListService: userListService)
         
         let viewController = UserList.ViewController(viewModel: viewModel)
