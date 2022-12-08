@@ -30,7 +30,7 @@ class BannerView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.lineBreakMode = .byWordWrapping
         $0.numberOfLines = 0
-        $0.textAlignment = .justified
+        $0.textAlignment = .left
         $0.textColor = .warningText
         $0.font = UIFont.systemFont(ofSize: 14)
     }

@@ -93,9 +93,6 @@ extension UserList.ViewController {
         output.userList
             .handleEvents(receiveOutput: { [weak self] userList in
                 self?.userList = userList
-                // debug
-                self?.showBanner(with: "Test for banner")
-                // debug
             })
             .bind(subscriber: tableView.rowsSubscriber(cellIdentifier: UserList.Cell.identifier, cellType: UserList.Cell.self, cellConfig: { cell, _, model in
                 cell.configure(with: model)
@@ -113,6 +110,14 @@ extension UserList.ViewController {
             }
             .store(in: &subscriptions)
 
+        // error
+        output.error
+            .sink { [weak self] error in
+                guard let message = error.localizedDescription.nilIfEmpty else { return }
+                let truncatedMessage = message.truncate(length: 250)
+                self?.showBanner(with: truncatedMessage, animated: true)
+            }
+            .store(in: &subscriptions)
     }
     
     private func setupOnLoad() {

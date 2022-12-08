@@ -15,7 +15,7 @@ extension URLSession {
         decoder: JSONDecoder = .init()
     ) -> AnyPublisher<Response, Error> {
         guard let request = endpoint.makeRequest(with: requestData) else {
-            return Fail(error: Network.Errors.invalidEndpoint).eraseToAnyPublisher()
+            return Fail(error: Network.Errors.invalidURL).eraseToAnyPublisher()
         }
         return dataTaskPublisher(for: request)
             .tryMap({ data, response in

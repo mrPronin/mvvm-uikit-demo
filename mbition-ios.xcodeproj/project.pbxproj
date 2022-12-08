@@ -21,6 +21,8 @@
 		096BB461294214A000502E5B /* UIControl+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB460294214A000502E5B /* UIControl+Combine.swift */; };
 		096BB463294214FA00502E5B /* CombineControlEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB462294214FA00502E5B /* CombineControlEvent.swift */; };
 		096BB4652942183100502E5B /* UIViewController+banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4642942183100502E5B /* UIViewController+banner.swift */; };
+		096BB4672942349100502E5B /* String+truncate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4662942349100502E5B /* String+truncate.swift */; };
+		096BB4692942350A00502E5B /* String+nilIfEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4682942350A00502E5B /* String+nilIfEmpty.swift */; };
 		09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A40293CBA9000BA7148 /* AppDelegate.swift */; };
 		09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A42293CBA9000BA7148 /* SceneDelegate.swift */; };
 		09907A45293CBA9000BA7148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A44293CBA9000BA7148 /* ViewController.swift */; };
@@ -91,6 +93,8 @@
 		096BB460294214A000502E5B /* UIControl+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Combine.swift"; sourceTree = "<group>"; };
 		096BB462294214FA00502E5B /* CombineControlEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineControlEvent.swift; sourceTree = "<group>"; };
 		096BB4642942183100502E5B /* UIViewController+banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+banner.swift"; sourceTree = "<group>"; };
+		096BB4662942349100502E5B /* String+truncate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+truncate.swift"; sourceTree = "<group>"; };
+		096BB4682942350A00502E5B /* String+nilIfEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+nilIfEmpty.swift"; sourceTree = "<group>"; };
 		09907A3D293CBA9000BA7148 /* mbition-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mbition-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09907A40293CBA9000BA7148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09907A42293CBA9000BA7148 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -439,6 +443,8 @@
 			isa = PBXGroup;
 			children = (
 				09907AB2293D051300BA7148 /* String+className.swift */,
+				096BB4662942349100502E5B /* String+truncate.swift */,
+				096BB4682942350A00502E5B /* String+nilIfEmpty.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -585,10 +591,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096BB4672942349100502E5B /* String+truncate.swift in Sources */,
 				09907AA3293CF0BD00BA7148 /* UserList+Service.swift in Sources */,
 				09907AAB293CF67C00BA7148 /* UserList+Assembly.swift in Sources */,
 				09907A8F293CC7B500BA7148 /* UserDetails+ViewModel.swift in Sources */,
 				09907A45293CBA9000BA7148 /* ViewController.swift in Sources */,
+				096BB4692942350A00502E5B /* String+nilIfEmpty.swift in Sources */,
 				09907AD8293D2AA900BA7148 /* URLSession+publisher.swift in Sources */,
 				09907ACF293D289500BA7148 /* URLHost.swift in Sources */,
 				09907A9A293CE92500BA7148 /* Then.swift in Sources */,

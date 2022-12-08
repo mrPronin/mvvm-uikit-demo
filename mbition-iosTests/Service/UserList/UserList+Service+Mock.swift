@@ -15,6 +15,10 @@ extension UserList.Service {
         var error: Error?
         var userListArray: [UserList.Model]?
         var userList: AnyPublisher<[UserList.Model], Error> {
+            if let error = error {
+                return Fail(error: error)
+                    .eraseToAnyPublisher()
+            }
             if let userListArray = userListArray {
                 return Just<[UserList.Model]>(userListArray)
                     .setFailureType(to: Error.self)
