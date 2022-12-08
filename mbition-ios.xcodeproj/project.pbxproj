@@ -23,6 +23,12 @@
 		096BB4652942183100502E5B /* UIViewController+banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4642942183100502E5B /* UIViewController+banner.swift */; };
 		096BB4672942349100502E5B /* String+truncate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4662942349100502E5B /* String+truncate.swift */; };
 		096BB4692942350A00502E5B /* String+nilIfEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4682942350A00502E5B /* String+nilIfEmpty.swift */; };
+		096BB46C294260D000502E5B /* UIImage+decoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB46B294260D000502E5B /* UIImage+decoded.swift */; };
+		096BB46F294263F300502E5B /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB46E294263F300502E5B /* Cache.swift */; };
+		096BB4712942642B00502E5B /* Cache+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4702942642B00502E5B /* Cache+Service.swift */; };
+		096BB4732942701500502E5B /* UIImage+estimatedSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4722942701500502E5B /* UIImage+estimatedSize.swift */; };
+		096BB475294271DE00502E5B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB474294271DE00502E5B /* ImageLoader.swift */; };
+		096BB4782942720A00502E5B /* ImageLoader+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4772942720A00502E5B /* ImageLoader+Service.swift */; };
 		09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A40293CBA9000BA7148 /* AppDelegate.swift */; };
 		09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A42293CBA9000BA7148 /* SceneDelegate.swift */; };
 		09907A45293CBA9000BA7148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A44293CBA9000BA7148 /* ViewController.swift */; };
@@ -95,6 +101,12 @@
 		096BB4642942183100502E5B /* UIViewController+banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+banner.swift"; sourceTree = "<group>"; };
 		096BB4662942349100502E5B /* String+truncate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+truncate.swift"; sourceTree = "<group>"; };
 		096BB4682942350A00502E5B /* String+nilIfEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+nilIfEmpty.swift"; sourceTree = "<group>"; };
+		096BB46B294260D000502E5B /* UIImage+decoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+decoded.swift"; sourceTree = "<group>"; };
+		096BB46E294263F300502E5B /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		096BB4702942642B00502E5B /* Cache+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cache+Service.swift"; sourceTree = "<group>"; };
+		096BB4722942701500502E5B /* UIImage+estimatedSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+estimatedSize.swift"; sourceTree = "<group>"; };
+		096BB474294271DE00502E5B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		096BB4772942720A00502E5B /* ImageLoader+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageLoader+Service.swift"; sourceTree = "<group>"; };
 		09907A3D293CBA9000BA7148 /* mbition-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mbition-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09907A40293CBA9000BA7148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09907A42293CBA9000BA7148 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +220,31 @@
 			path = CombineCocoa;
 			sourceTree = "<group>";
 		};
+		096BB46A294260A000502E5B /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				096BB46B294260D000502E5B /* UIImage+decoded.swift */,
+				096BB4722942701500502E5B /* UIImage+estimatedSize.swift */,
+			);
+			path = UIImage;
+			sourceTree = "<group>";
+		};
+		096BB46D2942620F00502E5B /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				096BB4702942642B00502E5B /* Cache+Service.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		096BB476294271F100502E5B /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				096BB4772942720A00502E5B /* ImageLoader+Service.swift */,
+			);
+			path = ImageLoader;
+			sourceTree = "<group>";
+		};
 		09907A34293CBA9000BA7148 = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +305,7 @@
 		09907A75293CBF0300BA7148 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				096BB46A294260A000502E5B /* UIImage */,
 				096BB45D2942145700502E5B /* CombineCocoa */,
 				096BB45A2942115E00502E5B /* BannerView */,
 				096BB4512941674300502E5B /* UIView */,
@@ -294,6 +332,8 @@
 		09907A79293CBFB600BA7148 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				096BB476294271F100502E5B /* ImageLoader */,
+				096BB46D2942620F00502E5B /* Cache */,
 				09907A7A293CC13D00BA7148 /* Network */,
 				09907A7D293CC1AF00BA7148 /* UserList */,
 				09907A80293CC1ED00BA7148 /* UserDetails */,
@@ -392,6 +432,8 @@
 				09907A7E293CC1CA00BA7148 /* UserList.swift */,
 				09907A81293CC1FC00BA7148 /* UserDetails.swift */,
 				09907A7B293CC16900BA7148 /* Network.swift */,
+				096BB46E294263F300502E5B /* Cache.swift */,
+				096BB474294271DE00502E5B /* ImageLoader.swift */,
 			);
 			path = Namespace;
 			sourceTree = "<group>";
@@ -601,6 +643,7 @@
 				09907ACF293D289500BA7148 /* URLHost.swift in Sources */,
 				09907A9A293CE92500BA7148 /* Then.swift in Sources */,
 				09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */,
+				096BB46F294263F300502E5B /* Cache.swift in Sources */,
 				09907A95293CDF5E00BA7148 /* UserList+Router.swift in Sources */,
 				09907A82293CC1FC00BA7148 /* UserDetails.swift in Sources */,
 				096BB4502941601100502E5B /* SectionView.swift in Sources */,
@@ -620,6 +663,7 @@
 				096BB4532941675700502E5B /* UIView+constraintForAttribute.swift in Sources */,
 				09907AAF293D04D400BA7148 /* UITableView+register.swift in Sources */,
 				096BB461294214A000502E5B /* UIControl+Combine.swift in Sources */,
+				096BB4782942720A00502E5B /* ImageLoader+Service.swift in Sources */,
 				09907AA9293CF55800BA7148 /* UserList+Service+Mock.swift in Sources */,
 				09907A74293CBE5D00BA7148 /* ColorDefines.swift in Sources */,
 				096BB4552941FD6200502E5B /* Endpoint+userDetails.swift in Sources */,
@@ -627,6 +671,7 @@
 				096BB44A29413E2800502E5B /* TitleAndValueView.swift in Sources */,
 				09907A88293CC3DF00BA7148 /* UserDetails+Model.swift in Sources */,
 				09907A7C293CC16900BA7148 /* Network.swift in Sources */,
+				096BB4732942701500502E5B /* UIImage+estimatedSize.swift in Sources */,
 				09907AC8293D122000BA7148 /* UIView+ActivityIndicator.swift in Sources */,
 				09907A9F293CEC5400BA7148 /* UIViewExtension.swift in Sources */,
 				09907AE52940E65900BA7148 /* UserDetails+Service.swift in Sources */,
@@ -636,8 +681,11 @@
 				096BB4652942183100502E5B /* UIViewController+banner.swift in Sources */,
 				09907A8A293CC58000BA7148 /* UserList+Model.swift in Sources */,
 				09907A97293CE1A600BA7148 /* UserList+ViewController.swift in Sources */,
+				096BB475294271DE00502E5B /* ImageLoader.swift in Sources */,
 				09907A71293CBD8D00BA7148 /* Constants.swift in Sources */,
+				096BB46C294260D000502E5B /* UIImage+decoded.swift in Sources */,
 				09907ACB293D271F00BA7148 /* Network+handleError.swift in Sources */,
+				096BB4712942642B00502E5B /* Cache+Service.swift in Sources */,
 				09907ABE293D0A0B00BA7148 /* TableViewItemsController.swift in Sources */,
 				09907AB7293D057400BA7148 /* UserList+Cell.swift in Sources */,
 				09907AD6293D2A0600BA7148 /* Endpoint+userList.swift in Sources */,

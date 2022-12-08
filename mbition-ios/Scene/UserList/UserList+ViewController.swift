@@ -96,7 +96,8 @@ extension UserList.ViewController {
             })
             .bind(subscriber: tableView.rowsSubscriber(cellIdentifier: UserList.Cell.identifier, cellType: UserList.Cell.self, cellConfig: { cell, _, model in
                 cell.configure(with: model)
-            })).store(in: &subscriptions)
+            }))
+            .store(in: &subscriptions)
 
         // activityIndicator
         output.activityIndicator
