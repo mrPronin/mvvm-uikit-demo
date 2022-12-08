@@ -14,6 +14,12 @@ class SectionView: UIView {
         $0.backgroundColor = .white
     }
     
+    let contentStackView = UIStackView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.axis = .vertical
+        $0.spacing = 0
+    }
+
     // MARK: - Init
     init() {
         super.init(frame: CGRect.zero)
@@ -25,6 +31,13 @@ class SectionView: UIView {
         backgroundView.add(into: self)
             .leading()
             .trailing()
+            .top(8)
+            .bottom(8)
+            .done()
+        
+        contentStackView.add(into: backgroundView)
+            .leading(8)
+            .trailing(8)
             .top(8)
             .bottom(8)
             .done()

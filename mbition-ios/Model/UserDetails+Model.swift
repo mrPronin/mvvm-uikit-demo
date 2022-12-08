@@ -12,8 +12,6 @@ extension UserDetails {
         let name: String?
         let company: String?
         let location: String?
-        let hireable: String?
-        let bio: String?
         let twitterUsername: String?
         let publicRepos: Int
         let publicGists: Int
@@ -26,8 +24,6 @@ extension UserDetails {
             case name
             case company
             case location
-            case hireable
-            case bio
             case twitterUsername = "twitter_username"
             case publicRepos = "public_repos"
             case publicGists = "public_gists"

@@ -37,6 +37,10 @@ class TitleAndValueView: UIView {
         
         layer.cornerRadius = 8
         clipsToBounds = true
+        
+        backgroundColor = .white
+        
+        translatesAutoresizingMaskIntoConstraints = false
 
         contentStackView.add(into: self)
             .leading(8)

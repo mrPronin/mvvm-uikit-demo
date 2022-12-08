@@ -50,9 +50,12 @@ extension UserDetails {
         }
         
         let profileURLView = TitleAndValueView().then {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.backgroundColor = .white
             $0.title.text = "User profile URL:"
+        }
+        
+        let detailsSectionView = SectionView().then {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.heightAnchor.constraint(equalToConstant: 100).isActive = true
         }
 
         // MARK: - Private
@@ -80,11 +83,49 @@ extension UserDetails.ViewController {
         // userDetails
         output.userDetails
             .sink { [weak self] userDetails in
-                self?.stackView.addArrangedSubview(SectionView().then {
-                    $0.translatesAutoresizingMaskIntoConstraints = false
-                    $0.heightAnchor.constraint(equalToConstant: 100).isActive = true
+                if let heightConstraint = self?.detailsSectionView.constraint(forAttribute: .height) {
+                    heightConstraint.isActive = false
+                }
+                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
+                    $0.title.text = "Name:"
+                    $0.value.text = userDetails.name
                 })
-                LOG(userDetails)
+                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
+                    $0.title.text = "Company:"
+                    $0.value.text = userDetails.company
+                })
+                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
+                    $0.title.text = "Location:"
+                    $0.value.text = userDetails.location
+                })
+                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
+                    $0.title.text = "Twitter username:"
+                    $0.value.text = userDetails.twitterUsername
+                })
+                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
+                    $0.title.text = "Public repos:"
+                    $0.value.text = String(userDetails.publicRepos)
+                })
+                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
+                    $0.title.text = "Public gists:"
+                    $0.value.text = String(userDetails.publicGists)
+                })
+                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
+                    $0.title.text = "Followers:"
+                    $0.value.text = String(userDetails.followers)
+                })
+                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
+                    $0.title.text = "Following:"
+                    $0.value.text = String(userDetails.following)
+                })
+                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
+                    $0.title.text = "Created at:"
+                    $0.value.text = userDetails.createdAt
+                })
+                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
+                    $0.title.text = "Updated at:"
+                    $0.value.text = userDetails.updatedAt
+                })
             }
             .store(in: &subscriptions)
     }
@@ -111,6 +152,7 @@ extension UserDetails.ViewController {
         
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
-        self.stackView.addArrangedSubview(profileURLView)
+        stackView.addArrangedSubview(profileURLView)
+        stackView.addArrangedSubview(detailsSectionView)
     }
 }
