@@ -26,7 +26,6 @@ extension UserDetails.ViewModel {
         let userDetails: AnyPublisher<UserDetails.Model, Never>
         let error: AnyPublisher<Error, Never>
         let activityIndicator: AnyPublisher<Bool, Never>
-        let loadingBanner: AnyPublisher<Bool, Never>
     }
 }
 
@@ -38,9 +37,8 @@ extension UserDetails.ViewModel {
             return UserDetails.ViewModel.Output(
                 userListModel: Just(userListModel).eraseToAnyPublisher(),
                 userDetails: userDetails(input, userListModel: userListModel),
-                error: Empty().eraseToAnyPublisher(),
-                activityIndicator: Empty().eraseToAnyPublisher(),
-                loadingBanner: Empty().eraseToAnyPublisher()
+                error: errorSubject.eraseToAnyPublisher(),
+                activityIndicator: activityIndicatorSubject.eraseToAnyPublisher()
             )
         }
         

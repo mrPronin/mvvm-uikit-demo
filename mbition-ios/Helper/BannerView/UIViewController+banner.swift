@@ -8,6 +8,11 @@
 import UIKit
 
 extension UIViewController {
+    func showBanner(with error: Error, animated: Bool = true) {
+        guard let message = error.localizedDescription.nilIfEmpty else { return }
+        let truncatedMessage = message.truncate(length: 250)
+        showBanner(with: truncatedMessage, animated: animated)
+    }
     func showBanner(with message: String, animated: Bool = true) {
         guard let stackView = stackView else { return }
         let errorView = BannerView(message: message)

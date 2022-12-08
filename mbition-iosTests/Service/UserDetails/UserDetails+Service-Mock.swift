@@ -16,6 +16,10 @@ extension UserDetails.Service {
         var userDetails: UserDetails.Model?
         
         func fetchUserDetails(with userLoginId: String) -> AnyPublisher<UserDetails.Model, Error> {
+            if let error = error {
+                return Fail(error: error)
+                    .eraseToAnyPublisher()
+            }
             if let userDetails = userDetails {
                 return Just<UserDetails.Model>(userDetails)
                     .setFailureType(to: Error.self)

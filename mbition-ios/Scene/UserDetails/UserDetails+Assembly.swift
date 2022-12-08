@@ -25,6 +25,7 @@ extension UserDetails {
         // mock
         
         let userDetailsService = UserDetails.Service.Mock()
+//        userDetailsService.error = Network.Errors.notFound
         userDetailsService.userDetails = userDetails
         
         

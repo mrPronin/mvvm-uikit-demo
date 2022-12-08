@@ -113,9 +113,7 @@ extension UserList.ViewController {
         // error
         output.error
             .sink { [weak self] error in
-                guard let message = error.localizedDescription.nilIfEmpty else { return }
-                let truncatedMessage = message.truncate(length: 250)
-                self?.showBanner(with: truncatedMessage, animated: true)
+                self?.showBanner(with: error)
             }
             .store(in: &subscriptions)
     }

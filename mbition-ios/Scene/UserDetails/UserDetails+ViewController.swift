@@ -93,9 +93,6 @@ extension UserDetails.ViewController {
                 if let heightConstraint = self?.detailsSectionView.constraint(forAttribute: .height) {
                     heightConstraint.isActive = false
                 }
-                // debug
-                self?.showBanner(with: "Test for banner")
-                // debug
                 // TODO: refactor multiple similar calls
                 self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
                     $0.title.text = "Name:"
@@ -139,6 +136,14 @@ extension UserDetails.ViewController {
                 })
             }
             .store(in: &subscriptions)
+        
+        // error
+        output.error
+            .sink { [weak self] error in
+                self?.showBanner(with: error)
+            }
+            .store(in: &subscriptions)
+
     }
     
     private func setupOnLoad() {
