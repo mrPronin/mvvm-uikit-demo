@@ -14,6 +14,7 @@
 		096BB44A29413E2800502E5B /* TitleAndValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB44929413E2800502E5B /* TitleAndValueView.swift */; };
 		096BB4502941601100502E5B /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB44F2941601100502E5B /* SectionView.swift */; };
 		096BB4532941675700502E5B /* UIView+constraintForAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4522941675700502E5B /* UIView+constraintForAttribute.swift */; };
+		096BB4552941FD6200502E5B /* Endpoint+userDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4542941FD6200502E5B /* Endpoint+userDetails.swift */; };
 		09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A40293CBA9000BA7148 /* AppDelegate.swift */; };
 		09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A42293CBA9000BA7148 /* SceneDelegate.swift */; };
 		09907A45293CBA9000BA7148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A44293CBA9000BA7148 /* ViewController.swift */; };
@@ -79,6 +80,7 @@
 		096BB44929413E2800502E5B /* TitleAndValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndValueView.swift; sourceTree = "<group>"; };
 		096BB44F2941601100502E5B /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		096BB4522941675700502E5B /* UIView+constraintForAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constraintForAttribute.swift"; sourceTree = "<group>"; };
+		096BB4542941FD6200502E5B /* Endpoint+userDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+userDetails.swift"; sourceTree = "<group>"; };
 		09907A3D293CBA9000BA7148 /* mbition-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mbition-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09907A40293CBA9000BA7148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09907A42293CBA9000BA7148 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 			children = (
 				09907AD1293D29A500BA7148 /* Endpoint.swift */,
 				09907AD5293D2A0600BA7148 /* Endpoint+userList.swift */,
+				096BB4542941FD6200502E5B /* Endpoint+userDetails.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				09907AAF293D04D400BA7148 /* UITableView+register.swift in Sources */,
 				09907AA9293CF55800BA7148 /* UserList+Service+Mock.swift in Sources */,
 				09907A74293CBE5D00BA7148 /* ColorDefines.swift in Sources */,
+				096BB4552941FD6200502E5B /* Endpoint+userDetails.swift in Sources */,
 				09907AC1293D0A6700BA7148 /* Section.swift in Sources */,
 				096BB44A29413E2800502E5B /* TitleAndValueView.swift in Sources */,
 				09907A88293CC3DF00BA7148 /* UserDetails+Model.swift in Sources */,

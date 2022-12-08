@@ -24,8 +24,5 @@ extension UserList.Service {
             return URLSession.shared.publisher(for: .userList)
                 .eraseToAnyPublisher()
         }
-        
-        // MARK: - Init
-        // MARK: - Private
     }
 }

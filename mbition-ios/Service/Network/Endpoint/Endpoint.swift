@@ -56,7 +56,8 @@ extension Endpoint {
             request.httpBody = payloadData
         }
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/vnd.github+json", forHTTPHeaderField: "Accept")
+        request.addValue("2022-11-28", forHTTPHeaderField: "X-GitHub-Api-Version")
         if let data = data {
             Kind.prepare(&request, with: data)
         }

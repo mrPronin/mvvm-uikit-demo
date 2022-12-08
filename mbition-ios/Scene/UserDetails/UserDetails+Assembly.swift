@@ -9,6 +9,8 @@ import UIKit
 
 extension UserDetails {
     static func viewController(with userListModel: UserList.Model) -> UIViewController {
+        // debug
+        /*
         // mock
         let testBundle = Bundle(for: UserDetails.ViewController.self)
         let path = testBundle.path(forResource: "user-details", ofType: "json")!
@@ -22,11 +24,13 @@ extension UserDetails {
 //        LOG(userDetails)
         // mock
         
-        // debug
         let userDetailsService = UserDetails.Service.Mock()
         userDetailsService.userDetails = userDetails
+        
+        */
         // debug
         
+        let userDetailsService = UserDetails.Service.Implementation()
         let viewModel = UserDetails.ViewModel.Implementation(
             userDetailsService: userDetailsService,
             userListModel: userListModel

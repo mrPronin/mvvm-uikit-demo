@@ -21,7 +21,8 @@ extension UserDetails.Service {
     struct Implementation: UserDetailsService {
         // MARK: - Public
         func fetchUserDetails(with userLoginId: String) -> AnyPublisher<UserDetails.Model, Error> {
-            return Empty().eraseToAnyPublisher()
+            return URLSession.shared.publisher(for: .userDetails(with: userLoginId))
+                .eraseToAnyPublisher()
         }
     }
 }
