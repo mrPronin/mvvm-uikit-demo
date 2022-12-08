@@ -45,7 +45,7 @@ extension UserList {
             $0.tableFooterView = UIView()
             $0.rowHeight = UITableView.automaticDimension
             $0.estimatedRowHeight = UITableView.automaticDimension
-            $0.separatorStyle = .singleLine
+            $0.separatorStyle = .none
             $0.showsHorizontalScrollIndicator = false
             $0.showsVerticalScrollIndicator = false
             $0.registerCellClass(UserList.Cell.self)

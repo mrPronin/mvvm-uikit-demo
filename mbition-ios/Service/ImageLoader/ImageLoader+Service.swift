@@ -36,7 +36,7 @@ extension ImageLoader.Service {
                     guard let image = image else { return }
                     self.cache[url] = image
                 })
-                .print("Image loading \(url):")
+//                .print("Image loading \(url):")
                 .subscribe(on: backgroundQueue)
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()

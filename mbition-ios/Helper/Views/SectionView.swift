@@ -12,6 +12,8 @@ class SectionView: UIView {
     let backgroundView = UIView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .white
+        $0.layer.cornerRadius = 8
+        $0.clipsToBounds = true
     }
     
     let contentStackView = UIStackView().then {
@@ -26,8 +28,6 @@ class SectionView: UIView {
         
         backgroundColor = .background
         
-        backgroundView.layer.cornerRadius = 8
-        backgroundView.clipsToBounds = true
         backgroundView.add(into: self)
             .leading()
             .trailing()
