@@ -49,18 +49,10 @@ extension UserDetails {
             $0.spacing = 0
         }
         
-        let profileURLView = UIView().then {
+        let profileURLView = TitleAndValueView().then {
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.backgroundColor = .lightGray
-            let title = UILabel().then {
-                $0.translatesAutoresizingMaskIntoConstraints = false
-                $0.text = "User profile URL:"
-            }
-            title.add(into: $0)
-                .leading(16)
-                .top(16)
-                .bottom(16)
-                .done()
+            $0.backgroundColor = .white
+            $0.title.text = "User profile URL:"
         }
 
         // MARK: - Private
@@ -81,7 +73,18 @@ extension UserDetails.ViewController {
         output.userListModel
             .sink { [weak self] userListModel in
                 self?.title = "User details: \(userListModel.login)"
-//                LOG(userListModel)
+                self?.profileURLView.value.text = userListModel.url?.absoluteString
+            }
+            .store(in: &subscriptions)
+        
+        // userDetails
+        output.userDetails
+            .sink { [weak self] userDetails in
+                self?.stackView.addArrangedSubview(SectionView().then {
+                    $0.translatesAutoresizingMaskIntoConstraints = false
+                    $0.heightAnchor.constraint(equalToConstant: 100).isActive = true
+                })
+                LOG(userDetails)
             }
             .store(in: &subscriptions)
     }
@@ -107,12 +110,7 @@ extension UserDetails.ViewController {
             .done()
         
         stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-
-        // profileURLView
-        profileURLView.cl
-            .height(100)
-//            .width(100)
-            .done()
-        stackView.addArrangedSubview(profileURLView)
+        
+        self.stackView.addArrangedSubview(profileURLView)
     }
 }

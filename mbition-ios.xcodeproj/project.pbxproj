@@ -11,6 +11,8 @@
 		096BB4452940E92600502E5B /* UserDetails+Service-Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */; };
 		096BB4462940E92F00502E5B /* UserDetails+Service-Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */; };
 		096BB4472940EC5C00502E5B /* user-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BB4422940E90E00502E5B /* user-details.json */; };
+		096BB44A29413E2800502E5B /* TitleAndValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB44929413E2800502E5B /* TitleAndValueView.swift */; };
+		096BB4502941601100502E5B /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB44F2941601100502E5B /* SectionView.swift */; };
 		09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A40293CBA9000BA7148 /* AppDelegate.swift */; };
 		09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A42293CBA9000BA7148 /* SceneDelegate.swift */; };
 		09907A45293CBA9000BA7148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A44293CBA9000BA7148 /* ViewController.swift */; };
@@ -73,6 +75,8 @@
 /* Begin PBXFileReference section */
 		096BB4422940E90E00502E5B /* user-details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "user-details.json"; sourceTree = SOURCE_ROOT; };
 		096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+Service-Mock.swift"; sourceTree = "<group>"; };
+		096BB44929413E2800502E5B /* TitleAndValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndValueView.swift; sourceTree = "<group>"; };
+		096BB44F2941601100502E5B /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		09907A3D293CBA9000BA7148 /* mbition-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mbition-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09907A40293CBA9000BA7148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09907A42293CBA9000BA7148 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +154,15 @@
 			path = UserDetails;
 			sourceTree = "<group>";
 		};
+		096BB44829413D3900502E5B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				096BB44929413E2800502E5B /* TitleAndValueView.swift */,
+				096BB44F2941601100502E5B /* SectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		09907A34293CBA9000BA7148 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +223,7 @@
 		09907A75293CBF0300BA7148 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				096BB44829413D3900502E5B /* Views */,
 				09907AC6293D121200BA7148 /* ActivityIndicator */,
 				09907AB9293D09A600BA7148 /* CombineDataSources */,
 				09907AB1293D050700BA7148 /* String */,
@@ -536,6 +550,7 @@
 				09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */,
 				09907A95293CDF5E00BA7148 /* UserList+Router.swift in Sources */,
 				09907A82293CC1FC00BA7148 /* UserDetails.swift in Sources */,
+				096BB4502941601100502E5B /* SectionView.swift in Sources */,
 				09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */,
 				09907AE12940C8B200BA7148 /* UserDetails+Assembly.swift in Sources */,
 				09907ACD293D281000BA7148 /* Network+httpMethod.swift in Sources */,
@@ -551,6 +566,7 @@
 				09907AA9293CF55800BA7148 /* UserList+Service+Mock.swift in Sources */,
 				09907A74293CBE5D00BA7148 /* ColorDefines.swift in Sources */,
 				09907AC1293D0A6700BA7148 /* Section.swift in Sources */,
+				096BB44A29413E2800502E5B /* TitleAndValueView.swift in Sources */,
 				09907A88293CC3DF00BA7148 /* UserDetails+Model.swift in Sources */,
 				09907A7C293CC16900BA7148 /* Network.swift in Sources */,
 				09907AC8293D122000BA7148 /* UIView+ActivityIndicator.swift in Sources */,

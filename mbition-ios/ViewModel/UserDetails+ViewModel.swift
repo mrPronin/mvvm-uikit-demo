@@ -34,6 +34,7 @@ extension UserDetails.ViewModel {
 extension UserDetails.ViewModel {
     struct Implementation: UserDetailsViewModel {
         func transform(input: UserDetails.ViewModel.Input) -> UserDetails.ViewModel.Output {
+            
             return UserDetails.ViewModel.Output(
                 userListModel: Just(userListModel).eraseToAnyPublisher(),
                 userDetails: userDetails(input, userListModel: userListModel),
@@ -52,13 +53,14 @@ extension UserDetails.ViewModel {
         // MARK: - Logic
         func userDetails(_ input: UserDetails.ViewModel.Input, userListModel: UserList.Model) -> AnyPublisher<UserDetails.Model, Never> {
             return input.load
+                .subscribe(on: DispatchQueue.global(qos: .default))
                 .handleEvents(receiveOutput: { _ in
                     // show activity indicator and loading banner
                     self.activityIndicatorSubject.send(true)
                 })
                 .flatMap { _ in self.userDetailsService.fetchUserDetails(with: self.userListModel.login) }
-                .subscribe(on: DispatchQueue.global(qos: .background))
                 .receive(on: DispatchQueue.main)
+                .delay(for: .seconds(1), scheduler: DispatchQueue.main)
                 .handleEvents(receiveOutput: { list in
                     // hide activity indicator and loading banner
                     self.activityIndicatorSubject.send(false)
