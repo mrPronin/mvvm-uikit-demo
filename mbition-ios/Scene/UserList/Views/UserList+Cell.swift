@@ -33,31 +33,19 @@ extension UserList {
         
         override public func prepareForReuse() {
             super.prepareForReuse()
-            avatar.image = nil
-            avatar.alpha = 0.0
+            avatar.image = .placeholder
             animator?.stopAnimation(true)
             cancellable?.cancel()
         }
 
         // MARK: - UI
-//        let containerView = UIView().then {
-//            $0.translatesAutoresizingMaskIntoConstraints = false
-//            $0.backgroundColor = .white
-//            $0.layer.cornerRadius = 8
-//            $0.clipsToBounds = true
-//        }
-        
-//        let contentStackView = UIStackView().then {
-//            $0.translatesAutoresizingMaskIntoConstraints = false
-//            $0.axis = .horizontal
-//            $0.spacing = 8
-//        }
-
         let avatar = UIImageView().then {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.contentMode = .scaleAspectFit
             $0.layer.cornerRadius = 8
             $0.clipsToBounds = true
+            $0.image = .placeholder
+            $0.backgroundColor = .systemGray6
         }
         
         let title = UILabel().then {
@@ -67,9 +55,9 @@ extension UserList {
         }
 
         // MARK: - Private
-        var imageLoader: ImageLoaderService?
+        private var imageLoader: ImageLoaderService?
         private var animator: UIViewPropertyAnimator?
-        var cancellable: AnyCancellable?
+        private var cancellable: AnyCancellable?
         
         private func showImage(image: UIImage?) {
             avatar.alpha = 0.0
@@ -83,13 +71,13 @@ extension UserList {
         private func loadImage(for model: UserList.Model) -> AnyPublisher<UIImage?, Never> {
             return Just(model.avatarUrl)
                 .compactMap { $0 }
-            .flatMap({ [weak self] avatarUrl -> AnyPublisher<UIImage?, Never> in
-                guard let imageLoader = self?.imageLoader else {
-                    return Empty().eraseToAnyPublisher()
-                }
-                return imageLoader.loadImage(from: avatarUrl)
-            })
-            .eraseToAnyPublisher()
+                .flatMap({ [weak self] avatarUrl -> AnyPublisher<UIImage?, Never> in
+                    guard let imageLoader = self?.imageLoader else {
+                        return Empty().eraseToAnyPublisher()
+                    }
+                    return imageLoader.loadImage(from: avatarUrl)
+                })
+                .eraseToAnyPublisher()
         }
     }
 }
@@ -102,6 +90,7 @@ extension UserList.Cell {
         contentView.layer.borderWidth = 4
         contentView.layer.cornerRadius = 8
         contentView.clipsToBounds = true
+        
 //        accessoryType = .disclosureIndicator
         
 //        containerView.add(into: contentView)

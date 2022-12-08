@@ -75,6 +75,7 @@
 		09907ADF2940C6F500BA7148 /* UserDetails+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907ADE2940C6F500BA7148 /* UserDetails+ViewController.swift */; };
 		09907AE12940C8B200BA7148 /* UserDetails+Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AE02940C8B200BA7148 /* UserDetails+Assembly.swift */; };
 		09907AE52940E65900BA7148 /* UserDetails+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AE42940E65900BA7148 /* UserDetails+Service.swift */; };
+		09DD7A4B29429D8400649B7F /* UIImage+placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DD7A4A29429D8400649B7F /* UIImage+placeholder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		09907ADE2940C6F500BA7148 /* UserDetails+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+ViewController.swift"; sourceTree = "<group>"; };
 		09907AE02940C8B200BA7148 /* UserDetails+Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+Assembly.swift"; sourceTree = "<group>"; };
 		09907AE42940E65900BA7148 /* UserDetails+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+Service.swift"; sourceTree = "<group>"; };
+		09DD7A4A29429D8400649B7F /* UIImage+placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+placeholder.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				096BB46B294260D000502E5B /* UIImage+decoded.swift */,
+				09DD7A4A29429D8400649B7F /* UIImage+placeholder.swift */,
 				096BB4722942701500502E5B /* UIImage+estimatedSize.swift */,
 			);
 			path = UIImage;
@@ -641,6 +644,7 @@
 				096BB4692942350A00502E5B /* String+nilIfEmpty.swift in Sources */,
 				09907AD8293D2AA900BA7148 /* URLSession+publisher.swift in Sources */,
 				09907ACF293D289500BA7148 /* URLHost.swift in Sources */,
+				09DD7A4B29429D8400649B7F /* UIImage+placeholder.swift in Sources */,
 				09907A9A293CE92500BA7148 /* Then.swift in Sources */,
 				09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */,
 				096BB46F294263F300502E5B /* Cache.swift in Sources */,
@@ -855,7 +859,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q8M6V9HM9E;
+				DEVELOPMENT_TEAM = HUV2SZ24Y2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mbition-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MBition;
@@ -868,7 +872,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pronin.mbition-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pronin.mbition-ios-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -883,7 +887,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q8M6V9HM9E;
+				DEVELOPMENT_TEAM = HUV2SZ24Y2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "mbition-ios/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = MBition;
@@ -896,7 +900,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pronin.mbition-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pronin.mbition-ios-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
