@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+//@testable import mbition_ios
+
 extension UserDetails.Service {
     class Mock: UserDetailsService {
         var error: Error?

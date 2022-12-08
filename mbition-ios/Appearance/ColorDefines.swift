@@ -15,6 +15,8 @@ extension UIColor {
     static let iconActive = UIColor(hex: "3C3C43")
     static let activityIndicator = UIColor(hex: "8A8A8E")
     static let background = UIColor.systemGray6
+    static let warning = UIColor(hex: "FF5572")
+    static let warningText = UIColor(hex: "FFFFFF")
 }
 
 // User list

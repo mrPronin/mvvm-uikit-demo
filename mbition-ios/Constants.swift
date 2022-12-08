@@ -9,4 +9,5 @@ import Foundation
 
 struct Constants {
     static let baseURL = "api.github.com"
+    static let animationDuration: TimeInterval = 0.3
 }
