@@ -64,6 +64,7 @@ extension UserDetails {
         }
         
         let profileURLView = TitleAndValueView().then {
+            $0.translatesAutoresizingMaskIntoConstraints = false
             $0.title.text = "User profile URL:"
         }
         
@@ -78,15 +79,6 @@ extension UserDetails {
         let imageLoader: ImageLoaderService
         private var animator: UIViewPropertyAnimator?
         var subscriptions = Set<AnyCancellable>()
-        
-        private func showImage(image: UIImage?) {
-            avatarImageView.alpha = 0.0
-            animator?.stopAnimation(false)
-            avatarImageView.image = image
-            animator = UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
-                self.avatarImageView.alpha = 1.0
-            })
-        }
     }
 }
 
@@ -98,10 +90,9 @@ extension UserDetails.ViewController {
         ))
         
         bind(userListModel: output.userList)
-        
         bind(userDetailsModel: output.userDetails)
-        
         bind(error: output.error)
+        bind(activityIndicator: output.activityIndicator)
     }
     
     private func bind(userListModel: AnyPublisher<UserList.Model, Never>) {
@@ -152,7 +143,7 @@ extension UserDetails.ViewController {
                     (userDetails.createdAt, "Created at:"),
                     (userDetails.updatedAt, "Updated at:"),
                 ]
-                    .map { TitleAndValueView(title: $0.0, value: $0.1) }
+                    .map { TitleAndValueView(title: $0.1, value: $0.0) }
                     .forEach { [weak self] in self?.detailsSectionView.contentStackView.addArrangedSubview($0) }
             }
             .store(in: &subscriptions)
@@ -165,6 +156,27 @@ extension UserDetails.ViewController {
                 self?.showBanner(with: error)
             }
             .store(in: &subscriptions)
+    }
+    
+    private func bind(activityIndicator: AnyPublisher<Bool, Never>) {
+        activityIndicator
+            .sink { [weak self] showActivityIndicator in
+                if showActivityIndicator {
+                    self?.detailsSectionView.showActivityIndicator(.activityIndicator)
+                } else {
+                    self?.detailsSectionView.hideActivityIndicator()
+                }
+            }
+            .store(in: &subscriptions)
+    }
+    
+    private func showImage(image: UIImage?) {
+        avatarImageView.alpha = 0.0
+        animator?.stopAnimation(false)
+        avatarImageView.image = image
+        animator = UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
+            self.avatarImageView.alpha = 1.0
+        })
     }
 
     private func setupOnLoad() {

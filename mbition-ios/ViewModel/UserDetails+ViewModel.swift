@@ -31,7 +31,7 @@ extension UserDetails.ViewModel {
 
 // Implement view model
 extension UserDetails.ViewModel {
-    class Implementation: UserDetailsViewModel {
+    struct Implementation: UserDetailsViewModel {
         func transform(input: UserDetails.ViewModel.Input) -> UserDetails.ViewModel.Output {
             
             return UserDetails.ViewModel.Output(
@@ -51,15 +51,17 @@ extension UserDetails.ViewModel {
         // MARK: - Logic
         func userDetails(_ input: UserDetails.ViewModel.Input, userListModel: UserList.Model) -> AnyPublisher<UserDetails.Model, Never> {
             input.load
-                .handleEvents(receiveOutput: { list in
+                .handleEvents(receiveOutput: { _ in
                     // show activity indicator and loading banner
                     self.activityIndicatorSubject.send(true)
 
                 })
                 .flatMap { _ in self.userDetailsService.fetchUserDetails(with: self.userListModel.login) }
                 .receive(on: DispatchQueue.main)
-//                .delay(for: .seconds(0.5), scheduler: DispatchQueue.main)
-                .handleEvents(receiveOutput: { list in
+                // debug
+//                .delay(for: .seconds(1), scheduler: DispatchQueue.main)
+                // debug
+                .handleEvents(receiveOutput: { _ in
                     // hide activity indicator and loading banner
                     self.activityIndicatorSubject.send(false)
 
