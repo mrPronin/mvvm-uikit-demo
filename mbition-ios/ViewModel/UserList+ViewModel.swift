@@ -20,6 +20,7 @@ extension UserList { enum ViewModel {} }
 extension UserList.ViewModel {
     struct Input {
         let load: AnyPublisher<Void, Never>
+        let loadNextPage: AnyPublisher<Void, Never>
     }
     struct Output {
         let userList: AnyPublisher<[UserList.Model], Never>
@@ -30,8 +31,16 @@ extension UserList.ViewModel {
 
 // Implement view model
 extension UserList.ViewModel {
-    struct Implementation: UserListViewModel {
+    // TODO: change to struct
+    class Implementation: UserListViewModel {
         func transform(input: UserList.ViewModel.Input) -> UserList.ViewModel.Output {
+            // debug
+            input.loadNextPage
+                .sink {
+                    LOG("loadNextPage")
+                }
+                .store(in: &subscriptions)
+            // debug
             return UserList.ViewModel.Output(
                 userList: userList(input),
                 error: errorSubject.eraseToAnyPublisher(),
@@ -77,5 +86,8 @@ extension UserList.ViewModel {
         // MARK: - Private
         private let errorSubject = PassthroughSubject<Error, Never>()
         private let activityIndicatorSubject = PassthroughSubject<Bool, Never>()
+        // debug
+        var subscriptions = Set<AnyCancellable>()
+        // debug
     }
 }

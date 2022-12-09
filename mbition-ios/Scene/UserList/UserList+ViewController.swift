@@ -59,6 +59,7 @@ extension UserList {
         var userList = [UserList.Model]()
         var router: UserListRouter!
         let load = PassthroughSubject<Void, Never>()
+        let loadNextPage = PassthroughSubject<Void, Never>()
         var subscriptions = Set<AnyCancellable>()
     }
 }
@@ -86,7 +87,8 @@ extension UserList.ViewController {
     
     private func bindViewModel() {
         let output = viewModel.transform(input: UserList.ViewModel.Input(
-            load: load.eraseToAnyPublisher()
+            load: load.eraseToAnyPublisher(),
+            loadNextPage: loadNextPage.eraseToAnyPublisher()
         ))
         
         bind(userList: output.userList)
@@ -105,8 +107,8 @@ extension UserList.ViewController {
             .store(in: &subscriptions)
         
         tableView.reachedBottomPublisher()
-            .sink {
-                LOG("reached bottom")
+            .sink { [weak self] in
+                self?.loadNextPage.send()
             }
             .store(in: &subscriptions)
     }
