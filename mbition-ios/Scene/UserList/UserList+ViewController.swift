@@ -103,6 +103,12 @@ extension UserList.ViewController {
                 cell.configure(with: model)
             }))
             .store(in: &subscriptions)
+        
+        tableView.reachedBottomPublisher()
+            .sink {
+                LOG("reached bottom")
+            }
+            .store(in: &subscriptions)
     }
     
     private func bind(error: AnyPublisher<Error, Never>) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0948B22F2943B9500055F048 /* UIScrollView+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B22E2943B9500055F048 /* UIScrollView+Combine.swift */; };
 		096BB4432940E90E00502E5B /* user-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BB4422940E90E00502E5B /* user-details.json */; };
 		096BB4462940E92F00502E5B /* UserDetails+Service-Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */; };
 		096BB4472940EC5C00502E5B /* user-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BB4422940E90E00502E5B /* user-details.json */; };
@@ -89,6 +90,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0948B22E2943B9500055F048 /* UIScrollView+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Combine.swift"; sourceTree = "<group>"; };
 		096BB4422940E90E00502E5B /* user-details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "user-details.json"; sourceTree = SOURCE_ROOT; };
 		096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+Service-Mock.swift"; sourceTree = "<group>"; };
 		096BB44929413E2800502E5B /* TitleAndValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndValueView.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				096BB462294214FA00502E5B /* CombineControlEvent.swift */,
 				096BB460294214A000502E5B /* UIControl+Combine.swift */,
 				096BB45E2942147700502E5B /* UIButton+Combine.swift */,
+				0948B22E2943B9500055F048 /* UIScrollView+Combine.swift */,
 			);
 			path = CombineCocoa;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				09907ACD293D281000BA7148 /* Network+httpMethod.swift in Sources */,
 				09907ABB293D09BA00BA7148 /* UITableView+Subscribers.swift in Sources */,
 				09907A78293CBF3500BA7148 /* UIColor+hex.swift in Sources */,
+				0948B22F2943B9500055F048 /* UIScrollView+Combine.swift in Sources */,
 				09907AB3293D051300BA7148 /* String+className.swift in Sources */,
 				09907AD4293D29DF00BA7148 /* AccessToken.swift in Sources */,
 				09907AC4293D0B0700BA7148 /* Publisher+Bind.swift in Sources */,

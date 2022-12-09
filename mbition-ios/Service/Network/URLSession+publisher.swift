@@ -23,6 +23,11 @@ extension URLSession {
                 if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
                     throw Network.error(from: response.statusCode)
                 }
+                // debug
+//                if let response = response as? HTTPURLResponse {
+//                    LOG("allHeaderFields: \(response.allHeaderFields)")
+//                }
+                // debug
                 // Return Response data
                 return data
             })
