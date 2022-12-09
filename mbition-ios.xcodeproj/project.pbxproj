@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0948B22F2943B9500055F048 /* UIScrollView+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B22E2943B9500055F048 /* UIScrollView+Combine.swift */; };
 		0948B2312943C20B0055F048 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B2302943C20B0055F048 /* Pagination.swift */; };
+		0948B2342943CA510055F048 /* XCTestCase+await.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B2332943CA510055F048 /* XCTestCase+await.swift */; };
 		096BB4432940E90E00502E5B /* user-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BB4422940E90E00502E5B /* user-details.json */; };
 		096BB4462940E92F00502E5B /* UserDetails+Service-Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */; };
 		096BB4472940EC5C00502E5B /* user-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BB4422940E90E00502E5B /* user-details.json */; };
@@ -93,6 +94,7 @@
 /* Begin PBXFileReference section */
 		0948B22E2943B9500055F048 /* UIScrollView+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Combine.swift"; sourceTree = "<group>"; };
 		0948B2302943C20B0055F048 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		0948B2332943CA510055F048 /* XCTestCase+await.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+await.swift"; sourceTree = "<group>"; };
 		096BB4422940E90E00502E5B /* user-details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "user-details.json"; sourceTree = SOURCE_ROOT; };
 		096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+Service-Mock.swift"; sourceTree = "<group>"; };
 		096BB44929413E2800502E5B /* TitleAndValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndValueView.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		09907A56293CBA9100BA7148 /* mbition-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				0948B2332943CA510055F048 /* XCTestCase+await.swift */,
 				09907AA0293CF06200BA7148 /* Service */,
 				09907A57293CBA9100BA7148 /* mbition_iosTests.swift */,
 			);
@@ -719,6 +722,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				096BB457294200A700502E5B /* UserList.swift in Sources */,
+				0948B2342943CA510055F048 /* XCTestCase+await.swift in Sources */,
 				096BB456294200A100502E5B /* UserDetails.swift in Sources */,
 				09907A58293CBA9100BA7148 /* mbition_iosTests.swift in Sources */,
 			);
