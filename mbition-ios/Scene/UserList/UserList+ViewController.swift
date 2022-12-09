@@ -86,7 +86,7 @@ extension UserList.ViewController {
     }
     
     private func bindViewModel() {
-        let output = viewModel.transform(input: UserList.ViewModel.Input(
+        let output = viewModel.transform(input: .init(
             load: load.eraseToAnyPublisher(),
             loadNextPage: loadNextPage.eraseToAnyPublisher()
         ))

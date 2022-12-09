@@ -85,7 +85,7 @@ extension UserDetails {
 // MARK: - Private
 extension UserDetails.ViewController {
     private func bindViewModel() {
-        let output = viewModel.transform(input: UserDetails.ViewModel.Input(
+        let output = viewModel.transform(input: .init(
             load: load.eraseToAnyPublisher()
         ))
         

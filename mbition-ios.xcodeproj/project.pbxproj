@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0948B22F2943B9500055F048 /* UIScrollView+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B22E2943B9500055F048 /* UIScrollView+Combine.swift */; };
+		0948B2312943C20B0055F048 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B2302943C20B0055F048 /* Pagination.swift */; };
 		096BB4432940E90E00502E5B /* user-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BB4422940E90E00502E5B /* user-details.json */; };
 		096BB4462940E92F00502E5B /* UserDetails+Service-Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */; };
 		096BB4472940EC5C00502E5B /* user-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BB4422940E90E00502E5B /* user-details.json */; };
@@ -91,6 +92,7 @@
 
 /* Begin PBXFileReference section */
 		0948B22E2943B9500055F048 /* UIScrollView+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Combine.swift"; sourceTree = "<group>"; };
+		0948B2302943C20B0055F048 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		096BB4422940E90E00502E5B /* user-details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "user-details.json"; sourceTree = SOURCE_ROOT; };
 		096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+Service-Mock.swift"; sourceTree = "<group>"; };
 		096BB44929413E2800502E5B /* TitleAndValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndValueView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0948B2322943C2600055F048 /* Pagination */ = {
+			isa = PBXGroup;
+			children = (
+				0948B2302943C20B0055F048 /* Pagination.swift */,
+			);
+			path = Pagination;
+			sourceTree = "<group>";
+		};
 		096BB4412940E8DA00502E5B /* UserDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +321,7 @@
 		09907A75293CBF0300BA7148 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				0948B2322943C2600055F048 /* Pagination */,
 				096BB46A294260A000502E5B /* UIImage */,
 				096BB45D2942145700502E5B /* CombineCocoa */,
 				096BB45A2942115E00502E5B /* BannerView */,
@@ -694,6 +705,7 @@
 				096BB46C294260D000502E5B /* UIImage+decoded.swift in Sources */,
 				09907ACB293D271F00BA7148 /* Network+handleError.swift in Sources */,
 				096BB4712942642B00502E5B /* Cache+Service.swift in Sources */,
+				0948B2312943C20B0055F048 /* Pagination.swift in Sources */,
 				09907ABE293D0A0B00BA7148 /* TableViewItemsController.swift in Sources */,
 				09907AB7293D057400BA7148 /* UserList+Cell.swift in Sources */,
 				09907AD6293D2A0600BA7148 /* Endpoint+userList.swift in Sources */,
