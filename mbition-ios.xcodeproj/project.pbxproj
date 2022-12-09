@@ -10,6 +10,9 @@
 		0948B22F2943B9500055F048 /* UIScrollView+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B22E2943B9500055F048 /* UIScrollView+Combine.swift */; };
 		0948B2312943C20B0055F048 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B2302943C20B0055F048 /* Pagination.swift */; };
 		0948B2342943CA510055F048 /* XCTestCase+await.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B2332943CA510055F048 /* XCTestCase+await.swift */; };
+		0948B2382943CD5E0055F048 /* PaginationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B2372943CD5E0055F048 /* PaginationTest.swift */; };
+		0948B2392943CED10055F048 /* UserList+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A89293CC58000BA7148 /* UserList+Model.swift */; };
+		0948B23C2943E7D40055F048 /* Combine+withLatestFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0948B23B2943E7D40055F048 /* Combine+withLatestFrom.swift */; };
 		096BB4432940E90E00502E5B /* user-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BB4422940E90E00502E5B /* user-details.json */; };
 		096BB4462940E92F00502E5B /* UserDetails+Service-Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */; };
 		096BB4472940EC5C00502E5B /* user-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 096BB4422940E90E00502E5B /* user-details.json */; };
@@ -38,7 +41,6 @@
 		09907A48293CBA9000BA7148 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09907A46293CBA9000BA7148 /* Main.storyboard */; };
 		09907A4A293CBA9100BA7148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09907A49293CBA9100BA7148 /* Assets.xcassets */; };
 		09907A4D293CBA9100BA7148 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09907A4B293CBA9100BA7148 /* LaunchScreen.storyboard */; };
-		09907A58293CBA9100BA7148 /* mbition_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A57293CBA9100BA7148 /* mbition_iosTests.swift */; };
 		09907A71293CBD8D00BA7148 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A70293CBD8D00BA7148 /* Constants.swift */; };
 		09907A74293CBE5D00BA7148 /* ColorDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A73293CBE5D00BA7148 /* ColorDefines.swift */; };
 		09907A78293CBF3500BA7148 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A77293CBF3500BA7148 /* UIColor+hex.swift */; };
@@ -95,6 +97,8 @@
 		0948B22E2943B9500055F048 /* UIScrollView+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Combine.swift"; sourceTree = "<group>"; };
 		0948B2302943C20B0055F048 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		0948B2332943CA510055F048 /* XCTestCase+await.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+await.swift"; sourceTree = "<group>"; };
+		0948B2372943CD5E0055F048 /* PaginationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationTest.swift; sourceTree = "<group>"; };
+		0948B23B2943E7D40055F048 /* Combine+withLatestFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+withLatestFrom.swift"; sourceTree = "<group>"; };
 		096BB4422940E90E00502E5B /* user-details.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "user-details.json"; sourceTree = SOURCE_ROOT; };
 		096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+Service-Mock.swift"; sourceTree = "<group>"; };
 		096BB44929413E2800502E5B /* TitleAndValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndValueView.swift; sourceTree = "<group>"; };
@@ -123,7 +127,6 @@
 		09907A4C293CBA9100BA7148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09907A4E293CBA9100BA7148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09907A53293CBA9100BA7148 /* mbition-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mbition-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		09907A57293CBA9100BA7148 /* mbition_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbition_iosTests.swift; sourceTree = "<group>"; };
 		09907A70293CBD8D00BA7148 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		09907A73293CBE5D00BA7148 /* ColorDefines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDefines.swift; sourceTree = "<group>"; };
 		09907A77293CBF3500BA7148 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
@@ -189,6 +192,30 @@
 				0948B2302943C20B0055F048 /* Pagination.swift */,
 			);
 			path = Pagination;
+			sourceTree = "<group>";
+		};
+		0948B2352943CD280055F048 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0948B2362943CD330055F048 /* Pagination */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		0948B2362943CD330055F048 /* Pagination */ = {
+			isa = PBXGroup;
+			children = (
+				0948B2372943CD5E0055F048 /* PaginationTest.swift */,
+			);
+			path = Pagination;
+			sourceTree = "<group>";
+		};
+		0948B23A2943E7B70055F048 /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				0948B23B2943E7D40055F048 /* Combine+withLatestFrom.swift */,
+			);
+			path = Combine;
 			sourceTree = "<group>";
 		};
 		096BB4412940E8DA00502E5B /* UserDetails */ = {
@@ -307,8 +334,8 @@
 			isa = PBXGroup;
 			children = (
 				0948B2332943CA510055F048 /* XCTestCase+await.swift */,
+				0948B2352943CD280055F048 /* Helper */,
 				09907AA0293CF06200BA7148 /* Service */,
-				09907A57293CBA9100BA7148 /* mbition_iosTests.swift */,
 			);
 			path = "mbition-iosTests";
 			sourceTree = "<group>";
@@ -324,14 +351,15 @@
 		09907A75293CBF0300BA7148 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				0948B23A2943E7B70055F048 /* Combine */,
+				09907AB9293D09A600BA7148 /* CombineDataSources */,
+				096BB45D2942145700502E5B /* CombineCocoa */,
 				0948B2322943C2600055F048 /* Pagination */,
 				096BB46A294260A000502E5B /* UIImage */,
-				096BB45D2942145700502E5B /* CombineCocoa */,
 				096BB45A2942115E00502E5B /* BannerView */,
 				096BB4512941674300502E5B /* UIView */,
 				096BB44829413D3900502E5B /* Views */,
 				09907AC6293D121200BA7148 /* ActivityIndicator */,
-				09907AB9293D09A600BA7148 /* CombineDataSources */,
 				09907AB1293D050700BA7148 /* String */,
 				09907AAD293D04C500BA7148 /* UITableView */,
 				09907A9B293CEC1500BA7148 /* ChainLayout */,
@@ -655,6 +683,7 @@
 			files = (
 				096BB4672942349100502E5B /* String+truncate.swift in Sources */,
 				09907AA3293CF0BD00BA7148 /* UserList+Service.swift in Sources */,
+				0948B23C2943E7D40055F048 /* Combine+withLatestFrom.swift in Sources */,
 				09907AAB293CF67C00BA7148 /* UserList+Assembly.swift in Sources */,
 				09907A8F293CC7B500BA7148 /* UserDetails+ViewModel.swift in Sources */,
 				09907A45293CBA9000BA7148 /* ViewController.swift in Sources */,
@@ -723,8 +752,9 @@
 			files = (
 				096BB457294200A700502E5B /* UserList.swift in Sources */,
 				0948B2342943CA510055F048 /* XCTestCase+await.swift in Sources */,
+				0948B2382943CD5E0055F048 /* PaginationTest.swift in Sources */,
 				096BB456294200A100502E5B /* UserDetails.swift in Sources */,
-				09907A58293CBA9100BA7148 /* mbition_iosTests.swift in Sources */,
+				0948B2392943CED10055F048 /* UserList+Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

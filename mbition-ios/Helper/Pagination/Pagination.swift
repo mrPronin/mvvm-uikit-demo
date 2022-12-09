@@ -15,14 +15,6 @@ extension Pagination {
     static let perPage: Int = 20
 }
 
-// Define request
-extension Pagination {
-    struct Request {
-        let since: Int
-        let perPage: Int
-    }
-}
-
 // Define UISource
 extension Pagination {
     struct UISource {
@@ -37,11 +29,6 @@ extension Pagination {
 // Define Sink
 extension Pagination {
     struct Sink<T: Codable> {
-        struct Response: Codable {
-            let data: [T]
-            let hasMore: Bool
-            let page: Int
-        }
         // loand new data with page number and page size limit
         typealias LoadDataHandler = (Request) -> AnyPublisher<Response, Never>
         /// true if network loading is in progress.
@@ -52,6 +39,22 @@ extension Pagination {
         let error: AnyPublisher<Error, Never>
         
         let hasMore: AnyPublisher<Bool, Never>
+    }
+}
+
+// Define request
+extension Pagination.Sink {
+    struct Request {
+        let since: Int?
+        let perPage: Int
+    }
+}
+
+// Define response
+extension Pagination.Sink {
+    struct Response: Codable {
+        let data: [T]
+        let since: Int?
     }
 }
 
