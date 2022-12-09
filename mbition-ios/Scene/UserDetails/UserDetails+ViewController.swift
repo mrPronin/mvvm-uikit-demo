@@ -89,14 +89,14 @@ extension UserDetails.ViewController {
             load: load.eraseToAnyPublisher()
         ))
         
-        bind(userListModel: output.userList)
-        bind(userDetailsModel: output.userDetails)
+        bind(userList: output.userList)
+        bind(userDetails: output.userDetails)
         bind(error: output.error)
         bind(activityIndicator: output.activityIndicator)
     }
     
-    private func bind(userListModel: AnyPublisher<UserList.Model, Never>) {
-        let sharedUserListModel = userListModel
+    private func bind(userList: AnyPublisher<UserList.Model, Never>) {
+        let sharedUserListModel = userList
             .multicast { PassthroughSubject<UserList.Model, Never>() }
         
         sharedUserListModel
@@ -124,8 +124,8 @@ extension UserDetails.ViewController {
             .store(in: &subscriptions)
     }
     
-    private func bind(userDetailsModel: AnyPublisher<UserDetails.Model, Never>) {
-        userDetailsModel
+    private func bind(userDetails: AnyPublisher<UserDetails.Model, Never>) {
+        userDetails
             .sink { [weak self] userDetails in
                 if let heightConstraint = self?.detailsSectionView.constraint(forAttribute: .height) {
                     heightConstraint.isActive = false

@@ -54,7 +54,6 @@ extension UserDetails.ViewModel {
                 .handleEvents(receiveOutput: { _ in
                     // show activity indicator and loading banner
                     self.activityIndicatorSubject.send(true)
-
                 })
                 .flatMap { _ in self.userDetailsService.fetchUserDetails(with: self.userListModel.login) }
                 .receive(on: DispatchQueue.main)
@@ -64,7 +63,6 @@ extension UserDetails.ViewModel {
                 .handleEvents(receiveOutput: { _ in
                     // hide activity indicator and loading banner
                     self.activityIndicatorSubject.send(false)
-
                 })
                 .catch { error -> AnyPublisher<UserDetails.Model, Never> in
                     DispatchQueue.main.async {

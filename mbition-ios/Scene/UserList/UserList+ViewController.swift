@@ -89,8 +89,13 @@ extension UserList.ViewController {
             load: load.eraseToAnyPublisher()
         ))
         
-        // serverList
-        output.userList
+        bind(userList: output.userList)
+        bind(error: output.error)
+        bind(activityIndicator: output.activityIndicator)
+    }
+    
+    private func bind(userList: AnyPublisher<[UserList.Model], Never>) {
+        userList
             .handleEvents(receiveOutput: { [weak self] userList in
                 self?.userList = userList
             })
@@ -98,9 +103,18 @@ extension UserList.ViewController {
                 cell.configure(with: model)
             }))
             .store(in: &subscriptions)
-
-        // activityIndicator
-        output.activityIndicator
+    }
+    
+    private func bind(error: AnyPublisher<Error, Never>) {
+        error
+            .sink { [weak self] error in
+                self?.showBanner(with: error)
+            }
+            .store(in: &subscriptions)
+    }
+    
+    private func bind(activityIndicator: AnyPublisher<Bool, Never>) {
+        activityIndicator
             .sink { [weak self] showActivityIndicator in
                 if showActivityIndicator {
                     self?.view.showActivityIndicator(.activityIndicator)
@@ -110,15 +124,8 @@ extension UserList.ViewController {
                 }
             }
             .store(in: &subscriptions)
-
-        // error
-        output.error
-            .sink { [weak self] error in
-                self?.showBanner(with: error)
-            }
-            .store(in: &subscriptions)
     }
-    
+
     private func setupOnLoad() {
         view.backgroundColor = .background
         title = "User list"
