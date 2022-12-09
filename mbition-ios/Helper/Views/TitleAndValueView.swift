@@ -32,6 +32,13 @@ class TitleAndValueView: UIView {
     }
     
     // MARK: - Init
+    convenience init(title: String?, value: String?) {
+        self.init()
+        
+        self.title.text = title
+        self.value.text = value
+    }
+    
     init() {
         super.init(frame: CGRect.zero)
         

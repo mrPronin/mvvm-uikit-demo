@@ -131,47 +131,21 @@ extension UserDetails.ViewController {
                 if let heightConstraint = self?.detailsSectionView.constraint(forAttribute: .height) {
                     heightConstraint.isActive = false
                 }
-                // TODO: refactor multiple similar calls
-                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
-                    $0.title.text = "Name:"
-                    $0.value.text = userDetails.name
-                })
-                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
-                    $0.title.text = "Company:"
-                    $0.value.text = userDetails.company
-                })
-                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
-                    $0.title.text = "Location:"
-                    $0.value.text = userDetails.location
-                })
-                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
-                    $0.title.text = "Twitter username:"
-                    $0.value.text = userDetails.twitterUsername
-                })
-                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
-                    $0.title.text = "Public repos:"
-                    $0.value.text = String(userDetails.publicRepos)
-                })
-                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
-                    $0.title.text = "Public gists:"
-                    $0.value.text = String(userDetails.publicGists)
-                })
-                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
-                    $0.title.text = "Followers:"
-                    $0.value.text = String(userDetails.followers)
-                })
-                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
-                    $0.title.text = "Following:"
-                    $0.value.text = String(userDetails.following)
-                })
-                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
-                    $0.title.text = "Created at:"
-                    $0.value.text = userDetails.createdAt
-                })
-                self?.detailsSectionView.contentStackView.addArrangedSubview(TitleAndValueView().then {
-                    $0.title.text = "Updated at:"
-                    $0.value.text = userDetails.updatedAt
-                })
+                // Build details UI
+                [
+                    (userDetails.name, "Name:"),
+                    (userDetails.company, "Company:"),
+                    (userDetails.location, "Location:"),
+                    (userDetails.twitterUsername, "Twitter username:"),
+                    (String(userDetails.publicRepos), "Public repos:"),
+                    (String(userDetails.publicGists), "Public gists:"),
+                    (String(userDetails.followers), "Followers:"),
+                    (String(userDetails.following), "Following:"),
+                    (userDetails.createdAt, "Created at:"),
+                    (userDetails.updatedAt, "Updated at:"),
+                ]
+                    .map { TitleAndValueView(title: $0.0, value: $0.1) }
+                    .forEach { [weak self] in self?.detailsSectionView.contentStackView.addArrangedSubview($0) }
             }
             .store(in: &subscriptions)
         

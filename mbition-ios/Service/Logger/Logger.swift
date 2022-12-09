@@ -47,7 +47,7 @@ struct LoggerImplementation: Logger {
     }
     // MARK: - Init
     init() {
-        // TODO: if !DEBUG -> init crash log (Crashlytics for example)
+        // if !DEBUG -> init crash log (Crashlytics for example)
         /*
         #if !DEBUG
         #endif
