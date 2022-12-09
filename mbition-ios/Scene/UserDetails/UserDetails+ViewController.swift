@@ -97,8 +97,15 @@ extension UserDetails.ViewController {
             load: load.eraseToAnyPublisher()
         ))
         
-        // userListModel
-        let sharedUserListModel = output.userListModel
+        bind(userListModel: output.userList)
+        
+        bind(userDetailsModel: output.userDetails)
+        
+        bind(error: output.error)
+    }
+    
+    private func bind(userListModel: AnyPublisher<UserList.Model, Never>) {
+        let sharedUserListModel = userListModel
             .multicast { PassthroughSubject<UserList.Model, Never>() }
         
         sharedUserListModel
@@ -124,9 +131,10 @@ extension UserDetails.ViewController {
         
         sharedUserListModel.connect()
             .store(in: &subscriptions)
-        
-        // userDetails
-        output.userDetails
+    }
+    
+    private func bind(userDetailsModel: AnyPublisher<UserDetails.Model, Never>) {
+        userDetailsModel
             .sink { [weak self] userDetails in
                 if let heightConstraint = self?.detailsSectionView.constraint(forAttribute: .height) {
                     heightConstraint.isActive = false
@@ -148,16 +156,17 @@ extension UserDetails.ViewController {
                     .forEach { [weak self] in self?.detailsSectionView.contentStackView.addArrangedSubview($0) }
             }
             .store(in: &subscriptions)
-        
-        // error
-        output.error
+
+    }
+    
+    private func bind(error: AnyPublisher<Error, Never>) {
+        error
             .sink { [weak self] error in
                 self?.showBanner(with: error)
             }
             .store(in: &subscriptions)
-
     }
-    
+
     private func setupOnLoad() {
         view.backgroundColor = .background
         title = "User details"

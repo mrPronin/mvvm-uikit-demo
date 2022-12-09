@@ -22,7 +22,7 @@ extension UserDetails.ViewModel {
         let load: AnyPublisher<Void, Never>
     }
     struct Output {
-        let userListModel: AnyPublisher<UserList.Model, Never>
+        let userList: AnyPublisher<UserList.Model, Never>
         let userDetails: AnyPublisher<UserDetails.Model, Never>
         let error: AnyPublisher<Error, Never>
         let activityIndicator: AnyPublisher<Bool, Never>
@@ -31,11 +31,11 @@ extension UserDetails.ViewModel {
 
 // Implement view model
 extension UserDetails.ViewModel {
-    struct Implementation: UserDetailsViewModel {
+    class Implementation: UserDetailsViewModel {
         func transform(input: UserDetails.ViewModel.Input) -> UserDetails.ViewModel.Output {
             
             return UserDetails.ViewModel.Output(
-                userListModel: Just(userListModel).eraseToAnyPublisher(),
+                userList: Just(userListModel).eraseToAnyPublisher(),
                 userDetails: userDetails(input, userListModel: userListModel),
                 error: errorSubject.eraseToAnyPublisher(),
                 activityIndicator: activityIndicatorSubject.eraseToAnyPublisher()
@@ -50,11 +50,11 @@ extension UserDetails.ViewModel {
         
         // MARK: - Logic
         func userDetails(_ input: UserDetails.ViewModel.Input, userListModel: UserList.Model) -> AnyPublisher<UserDetails.Model, Never> {
-            return input.load
-                .subscribe(on: DispatchQueue.global(qos: .default))
-                .handleEvents(receiveOutput: { _ in
+            input.load
+                .handleEvents(receiveOutput: { list in
                     // show activity indicator and loading banner
                     self.activityIndicatorSubject.send(true)
+
                 })
                 .flatMap { _ in self.userDetailsService.fetchUserDetails(with: self.userListModel.login) }
                 .receive(on: DispatchQueue.main)
