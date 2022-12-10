@@ -22,7 +22,6 @@ extension Pagination {
         let reload: AnyPublisher<Void, Never>
         /// loads next page
         let loadNextPage: AnyPublisher<Void, Never>
-        let subscriptions: Set<AnyCancellable>
     }
 }
 

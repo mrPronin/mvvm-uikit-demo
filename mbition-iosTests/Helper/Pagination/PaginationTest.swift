@@ -29,8 +29,7 @@ class PaginationTest: XCTestCase {
         reloadSubject = PassthroughSubject<Void, Never>()
         uiSource = Pagination.UISource(
             reload: reloadSubject.eraseToAnyPublisher(),
-            loadNextPage: Empty().eraseToAnyPublisher(),
-            subscriptions: subsciptions
+            loadNextPage: Empty().eraseToAnyPublisher()
         )
         sut = Pagination.Sink(ui: uiSource, loadData: dataLoader(request:))
     }
@@ -55,7 +54,17 @@ class PaginationTest: XCTestCase {
     }
     
     func testReloadAlwaysReturnFirstPage() throws {
-        
+        let result1 = try awaitSingle(sut.elements, actionHandler: { [weak self] in
+            self?.reloadSubject.send()
+        })
+        let result2 = try awaitSingle(sut.elements, actionHandler: { [weak self] in
+            self?.reloadSubject.send()
+        })
+        XCTAssertEqual(result1.count, userList.count)
+        XCTAssertEqual(result2.count, userList.count)
+        XCTAssertEqual(result1, result2)
+        XCTAssert(sut.pages.count == 1)
+        XCTAssert(sut.pages.first?.key == 0)
     }
 
     var userList: [UserList.Model] {
