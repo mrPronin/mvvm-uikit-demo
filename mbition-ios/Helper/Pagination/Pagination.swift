@@ -67,6 +67,7 @@ extension Pagination {
         private let errorSubject = PassthroughSubject<Error, Never>()
         private let elementsSubject = PassthroughSubject<[T], Never>()
         private let activityIndicatorSubject = PassthroughSubject<Bool, Never>()
+        private let startSubject = PassthroughSubject<Void, Never>()
         private var subscriptions = Set<AnyCancellable>()
 
         // MARK: - Init
@@ -75,32 +76,25 @@ extension Pagination {
             elements = elementsSubject.eraseToAnyPublisher()
             error = errorSubject.eraseToAnyPublisher()
 
-            let reloadStream = ui.reload
-                .share()
-            
-            // Reload from first page, reset $nextSince to 0
-            reloadStream
-                .map { 0 }
-                .assign(to: &$nextSince)
-            
-            // Reset hasMore
-            reloadStream
-                .map { true }
-                .assign(to: &$hasMore)
+            ui.reload
+                .sink(receiveValue: { [unowned self] in
+                    self.nextSince = 0
+                    self.hasMore = true
+                    self.startSubject.send()
+                })
+                .store(in: &subscriptions)
             
             // Prevent request if we are reached the end of data
-            let loadNextPageStream = ui.loadNextPage
+            ui.loadNextPage
                 .withLatestFrom($hasMore)
                 .filter { $1 }
-                .map { _ in Void() }
-            
-            // Merge load next and reload streams
-            let startStream = loadNextPageStream
-                .merge(with: reloadStream)
-                .share()
+                .sink(receiveValue: { [unowned self] _ in
+                    self.startSubject.send()
+                })
+                .store(in: &subscriptions)
             
             // Load data for page with nextSince
-            let pageStream = startStream
+            let pageStream = startSubject
                 .handleEvents(receiveOutput: { [unowned self] _ in
                     DispatchQueue.main.async { [weak self] in
                         self?.activityIndicatorSubject.send(true)
