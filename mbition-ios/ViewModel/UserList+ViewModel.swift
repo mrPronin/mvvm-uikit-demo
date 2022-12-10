@@ -32,14 +32,14 @@ extension UserList.ViewModel {
 // Implement view model
 extension UserList.ViewModel {
     // TODO: change to struct
-    class Implementation: UserListViewModel {
+    struct Implementation: UserListViewModel {
         func transform(input: UserList.ViewModel.Input) -> UserList.ViewModel.Output {
             // debug
-            input.loadNextPage
-                .sink {
-                    LOG("loadNextPage")
-                }
-                .store(in: &subscriptions)
+//            input.loadNextPage
+//                .sink {
+//                    LOG("loadNextPage")
+//                }
+//                .store(in: &subscriptions)
             // debug
             return UserList.ViewModel.Output(
                 userList: userList(input),
@@ -60,7 +60,7 @@ extension UserList.ViewModel {
                     // show activity indicator and loading banner
                     self.activityIndicatorSubject.send(true)
                 })
-                .flatMap { _ in self.userListService.userList}
+                .flatMap { _ in self.userListService.userList }
                 .receive(on: DispatchQueue.main)
                 // debug
 //                .delay(for: .seconds(1), scheduler: DispatchQueue.main)
@@ -87,7 +87,7 @@ extension UserList.ViewModel {
         private let errorSubject = PassthroughSubject<Error, Never>()
         private let activityIndicatorSubject = PassthroughSubject<Bool, Never>()
         // debug
-        var subscriptions = Set<AnyCancellable>()
+//        var subscriptions = Set<AnyCancellable>()
         // debug
     }
 }

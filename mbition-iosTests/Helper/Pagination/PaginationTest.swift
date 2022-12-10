@@ -16,10 +16,9 @@ class PaginationTest: XCTestCase {
     var reloadSubject: PassthroughSubject<Void, Never>!
     var subsciptions: Set<AnyCancellable>!
     
-    func dataLoader(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Never> {
+    func dataLoader(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
         return Just<[UserList.Model]>(userList)
             .setFailureType(to: Error.self)
-            .catch { error -> AnyPublisher<[UserList.Model], Never> in return Empty().eraseToAnyPublisher() }
             .map { PaginationSink.Response(data: $0, since: request.since ?? 0 + Pagination.perPage) }
             .eraseToAnyPublisher()
     }
