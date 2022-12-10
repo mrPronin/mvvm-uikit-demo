@@ -17,8 +17,15 @@ class PaginationTest: XCTestCase {
     var loadNextPageSubject: PassthroughSubject<Void, Never>!
     var subsciptions: Set<AnyCancellable>!
     
-    func dataLoader(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
+    func dataLoaderNormalResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
         return Just<[UserList.Model]>(userList)
+            .setFailureType(to: Error.self)
+            .map { PaginationSink.Response(data: $0, since: request.since, nextSince: request.since + Pagination.perPage) }
+            .eraseToAnyPublisher()
+    }
+    
+    func dataLoaderEmptyResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
+        return Just<[UserList.Model]>([])
             .setFailureType(to: Error.self)
             .map { PaginationSink.Response(data: $0, since: request.since, nextSince: request.since + Pagination.perPage) }
             .eraseToAnyPublisher()
@@ -33,7 +40,7 @@ class PaginationTest: XCTestCase {
             reload: reloadSubject.eraseToAnyPublisher(),
             loadNextPage: loadNextPageSubject.eraseToAnyPublisher()
         )
-        sut = Pagination.Sink(ui: uiSource, loadData: dataLoader(request:))
+        sut = Pagination.Sink(ui: uiSource, loadData: dataLoaderNormalResponse(request:))
     }
 
     override func tearDownWithError() throws {
@@ -87,6 +94,24 @@ class PaginationTest: XCTestCase {
         // Check if first and second pages are loaded
         XCTAssertEqual(secondPageResult.count, Pagination.perPage * 2)
         XCTAssert(sut.pages.count == 2)
+    }
+    
+    func testHasMoreNormalResponse() throws {
+        // Initial state, pagination sink cache is empty
+        XCTAssert(sut.hasMore)
+        let _ = try awaitSingle(sut.elements, actionHandler: { [weak self] in
+            self?.reloadSubject.send()
+        })
+        XCTAssert(sut.hasMore)
+    }
+    
+    func testHasMoreEmptyResponse() throws {
+        sut = Pagination.Sink(ui: uiSource, loadData: dataLoaderEmptyResponse(request:))
+        XCTAssert(sut.hasMore)
+        let _ = try awaitSingle(sut.elements, actionHandler: { [weak self] in
+            self?.loadNextPageSubject.send()
+        })
+        XCTAssert(!sut.hasMore)
     }
 
     var userList: [UserList.Model] {

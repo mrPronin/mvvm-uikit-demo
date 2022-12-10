@@ -56,41 +56,46 @@ extension Pagination.Sink {
 extension Pagination {
     class Sink<T: Codable> {
         // MARK: - Public
-        
-        /// true if network loading is in progress.
         let activityIndicator: AnyPublisher<Bool, Never>
-        
-        /// elements from all loaded pages
         let elements: AnyPublisher<[T], Never>
-        
-        /// fires once for each error
         let error: AnyPublisher<Error, Never>
-        
-        let hasMore: AnyPublisher<Bool, Never>
+//        let hasMore: AnyPublisher<Bool, Never>
         
         // MARK: - Privat
         @Published var pages: [Int: [T]] = [:]
         @Published var nextSince: Int = 0
+        @Published var hasMore: Bool = true
         private let errorSubject = PassthroughSubject<Error, Never>()
         private let wrappedElements = PassthroughSubject<[T], Never>()
-        var subscriptions = Set<AnyCancellable>()
+        private var subscriptions = Set<AnyCancellable>()
 
         // MARK: - Init
         init(ui: Pagination.UISource, loadData: @escaping LoadDataHandler) {
             activityIndicator = Empty().eraseToAnyPublisher()
             elements = wrappedElements.eraseToAnyPublisher()
             error = errorSubject.eraseToAnyPublisher()
-            hasMore = Empty().eraseToAnyPublisher()
 
             let reloadStream = ui.reload
                 .share()
             
-            // Reload from first page, reset since to 0
+            // Reload from first page, reset $nextSince to 0
             reloadStream
                 .map { 0 }
                 .assign(to: &$nextSince)
             
-            let startStream = ui.loadNextPage
+            // Reset hasMore
+            reloadStream
+                .map { true }
+                .assign(to: &$hasMore)
+            
+            // Prevent request if we are reached the end of data
+            let loadNextPageStream = ui.loadNextPage
+                .withLatestFrom($hasMore)
+                .filter { $1 }
+                .map { _ in Void() }
+            
+            // Merge load next and reload streams
+            let startStream = loadNextPageStream
                 .merge(with: reloadStream)
                 .share()
             
@@ -112,6 +117,14 @@ extension Pagination {
                 .map(\.nextSince)
                 .compactMap { $0 }
                 .assign(to: &$nextSince)
+            
+            // Update hasMore from response
+            pageStream
+                .map(\.data)
+                .map { $0.isEmpty }
+                .filter { $0 }
+                .map { !$0 }
+                .assign(to: &$hasMore)
             
             // Merge new page with existing pages
             pageStream
