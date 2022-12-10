@@ -19,7 +19,7 @@ class PaginationTest: XCTestCase {
     func dataLoader(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
         return Just<[UserList.Model]>(userList)
             .setFailureType(to: Error.self)
-            .map { PaginationSink.Response(data: $0, since: request.since ?? 0 + Pagination.perPage) }
+            .map { PaginationSink.Response(data: $0, since: request.since, nextSince: request.since + Pagination.perPage) }
             .eraseToAnyPublisher()
     }
     
@@ -43,11 +43,19 @@ class PaginationTest: XCTestCase {
         subsciptions = []
     }
     
-    func testFirstPageFetched() throws {
+    func testReload() throws {
+        XCTAssert(sut.pages.count == 0)
         let result = try awaitSingle(sut.elements, actionHandler: { [weak self] in
             self?.reloadSubject.send()
         })
+        
         XCTAssertTrue(!result.isEmpty)
+        XCTAssert(sut.pages.count == 1)
+        XCTAssert(sut.pages.first?.key == 0)
+    }
+    
+    func testReloadAlwaysReturnFirstPage() throws {
+        
     }
 
     var userList: [UserList.Model] {

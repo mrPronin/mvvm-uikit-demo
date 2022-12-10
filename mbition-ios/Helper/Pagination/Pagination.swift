@@ -29,9 +29,9 @@ extension Pagination {
 // Define request
 extension Pagination.Sink {
     struct Request {
-        let since: Int?
+        let since: Int
         let perPage: Int
-        init(since: Int? = nil, perPage: Int = Pagination.perPage) {
+        init(since: Int, perPage: Int = Pagination.perPage) {
             self.since = since
             self.perPage = perPage
         }
@@ -42,7 +42,8 @@ extension Pagination.Sink {
 extension Pagination.Sink {
     struct Response: Codable {
         let data: [T]
-        let since: Int?
+        let since: Int
+        let nextSince: Int?
     }
 }
 
@@ -69,8 +70,8 @@ extension Pagination {
         let hasMore: AnyPublisher<Bool, Never>
         
         // MARK: - Privat
-        @Published private var loadResults: [Int: [T]] = [:]
-//        @Published private var error: Error?
+        @Published var pages: [Int: [T]] = [:]
+        @Published var since: Int = 0
         private let errorSubject = PassthroughSubject<Error, Never>()
         private let wrappedElements = PassthroughSubject<[T], Never>()
         var subscriptions = Set<AnyCancellable>()
@@ -82,9 +83,11 @@ extension Pagination {
             error = errorSubject.eraseToAnyPublisher()
             hasMore = Empty().eraseToAnyPublisher()
 
-            // Load page
-            let page = ui.reload
-                .flatMap { loadData(.init()) }
+            // Reload from first page, reset since to 0
+            let pageStream = ui.reload
+                .map { 0 }
+                .handleEvents(receiveOutput: { [unowned self] in self.since = $0 })
+                .flatMap { loadData(.init(since: $0)) }
                 .catch { error -> AnyPublisher<Pagination.Sink.Response, Never> in
                     DispatchQueue.main.async { [weak self] in
                         self?.errorSubject.send(error)
@@ -94,15 +97,21 @@ extension Pagination {
                 .eraseToAnyPublisher()
                 .share()
             
+            // Update next since from response
+            pageStream
+                .map(\.nextSince)
+                .compactMap { $0 }
+                .assign(to: &$since)
+            
             // Merge new page with existing pages
-            page
-                .map { (since: $0.since ?? 0, items: $0.data) }
-                .withLatestFrom($loadResults)
+            pageStream
+                .map { (since: $0.since, items: $0.data) }
+                .withLatestFrom($pages)
                 .map { [unowned self] in $0.0.since == 0 ? [0 : $0.0.items] : self.mergePages(newPage: [$0.0.since : $0.0.items], pages: $0.1) }
-                .assign(to: &$loadResults)
+                .assign(to: &$pages)
             
             // Prepare items list
-            $loadResults
+            $pages
                 .map { $0.sorted(by: { $0.key < $1.key }).flatMap { $0.value } }
                 .sink { [unowned self] in
                     self.wrappedElements.send($0)
