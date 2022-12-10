@@ -70,7 +70,7 @@ extension Pagination {
         
         // MARK: - Privat
         @Published var pages: [Int: [T]] = [:]
-        @Published var since: Int = 0
+        @Published var nextSince: Int = 0
         private let errorSubject = PassthroughSubject<Error, Never>()
         private let wrappedElements = PassthroughSubject<[T], Never>()
         var subscriptions = Set<AnyCancellable>()
@@ -82,11 +82,22 @@ extension Pagination {
             error = errorSubject.eraseToAnyPublisher()
             hasMore = Empty().eraseToAnyPublisher()
 
+            let reloadStream = ui.reload
+                .share()
+            
             // Reload from first page, reset since to 0
-            let pageStream = ui.reload
+            reloadStream
                 .map { 0 }
-                .handleEvents(receiveOutput: { [unowned self] in self.since = $0 })
-                .flatMap { loadData(.init(since: $0)) }
+                .assign(to: &$nextSince)
+            
+            let startStream = ui.loadNextPage
+                .merge(with: reloadStream)
+                .share()
+            
+            // Load data for page with nextSince
+            let pageStream = startStream
+                .withLatestFrom($nextSince)
+                .flatMap { loadData(.init(since: $1)) }
                 .catch { error -> AnyPublisher<Pagination.Sink.Response, Never> in
                     DispatchQueue.main.async { [weak self] in
                         self?.errorSubject.send(error)
@@ -100,7 +111,7 @@ extension Pagination {
             pageStream
                 .map(\.nextSince)
                 .compactMap { $0 }
-                .assign(to: &$since)
+                .assign(to: &$nextSince)
             
             // Merge new page with existing pages
             pageStream
