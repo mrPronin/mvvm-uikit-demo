@@ -59,20 +59,20 @@ extension Pagination {
         let activityIndicator: AnyPublisher<Bool, Never>
         let elements: AnyPublisher<[T], Never>
         let error: AnyPublisher<Error, Never>
-//        let hasMore: AnyPublisher<Bool, Never>
         
         // MARK: - Privat
         @Published var pages: [Int: [T]] = [:]
         @Published var nextSince: Int = 0
         @Published var hasMore: Bool = true
         private let errorSubject = PassthroughSubject<Error, Never>()
-        private let wrappedElements = PassthroughSubject<[T], Never>()
+        private let elementsSubject = PassthroughSubject<[T], Never>()
+        private let activityIndicatorSubject = PassthroughSubject<Bool, Never>()
         private var subscriptions = Set<AnyCancellable>()
 
         // MARK: - Init
         init(ui: Pagination.UISource, loadData: @escaping LoadDataHandler) {
-            activityIndicator = Empty().eraseToAnyPublisher()
-            elements = wrappedElements.eraseToAnyPublisher()
+            activityIndicator = activityIndicatorSubject.eraseToAnyPublisher()
+            elements = elementsSubject.eraseToAnyPublisher()
             error = errorSubject.eraseToAnyPublisher()
 
             let reloadStream = ui.reload
@@ -101,10 +101,21 @@ extension Pagination {
             
             // Load data for page with nextSince
             let pageStream = startStream
+                .handleEvents(receiveOutput: { [unowned self] _ in
+                    DispatchQueue.main.async { [weak self] in
+                        self?.activityIndicatorSubject.send(true)
+                    }
+                })
                 .withLatestFrom($nextSince)
                 .flatMap { loadData(.init(since: $1)) }
+                .handleEvents(receiveOutput: { [unowned self] _ in
+                    DispatchQueue.main.async { [weak self] in
+                        self?.activityIndicatorSubject.send(false)
+                    }
+                })
                 .catch { error -> AnyPublisher<Pagination.Sink.Response, Never> in
                     DispatchQueue.main.async { [weak self] in
+                        self?.activityIndicatorSubject.send(false)
                         self?.errorSubject.send(error)
                     }
                     return Empty().eraseToAnyPublisher()
@@ -137,7 +148,7 @@ extension Pagination {
             $pages
                 .map { $0.sorted(by: { $0.key < $1.key }).flatMap { $0.value } }
                 .sink { [unowned self] in
-                    self.wrappedElements.send($0)
+                    self.elementsSubject.send($0)
                 }
                 .store(in: &subscriptions)
         }

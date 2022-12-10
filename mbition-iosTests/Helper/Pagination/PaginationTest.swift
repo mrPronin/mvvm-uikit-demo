@@ -113,6 +113,19 @@ class PaginationTest: XCTestCase {
         })
         XCTAssert(!sut.hasMore)
     }
+    
+    func testActivityIndicator() throws {
+        let activityIndicatorPublisher = sut.activityIndicator
+            .collect(2)
+            .first()
+            .eraseToAnyPublisher()
+        
+        let result = try awaitMany(activityIndicatorPublisher, actionHandler: { [weak self] in
+            self?.reloadSubject.send()
+        })
+        XCTAssertEqual(result.count, 2)
+        XCTAssertEqual(result, [true, false])
+    }
 
     var userList: [UserList.Model] {
         let testBundle = Bundle(for: type(of: self))
