@@ -8,7 +8,7 @@
 import Foundation
 
 extension Network {
-    enum Errors: LocalizedError {
+    enum Errors: LocalizedError, Equatable {
         case invalidURL
         case badRequest
         case unauthorized
@@ -20,7 +20,7 @@ extension Network {
         case decodingError
         case urlSessionFailed(_ error: URLError)
         case unknownError(_ code: Int)
-        case other(error: Error)
+        case other(description: String)
     }
     
     static func error(from statusCode: Int) -> Errors {
@@ -44,7 +44,7 @@ extension Network {
         case let error as Network.Errors:
             return error
         default:
-            return .other(error: error)
+            return .other(description: error.localizedDescription)
         }
     }
 }
@@ -88,8 +88,8 @@ extension Network.Errors {
         case .unknownError: return "Network error. Unknown."
             // "Network error. Other: \(error.localizedDescription)"
             // "Netzwerkfehler. Andere: \(error.localizedDescription)"
-        case .other(error: let error):
-            return "Network error. Other: \(error.localizedDescription)"
+        case .other(description: let description):
+            return "Network error. Other: \(description)"
         }
     }
 }

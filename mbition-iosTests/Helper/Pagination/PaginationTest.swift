@@ -31,6 +31,10 @@ class PaginationTest: XCTestCase {
             .eraseToAnyPublisher()
     }
     
+    func dataLoaderErrorResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
+        return Fail(error: Network.Errors.notFound).eraseToAnyPublisher()
+    }
+    
     override func setUpWithError() throws {
         try super.setUpWithError()
         subsciptions = Set<AnyCancellable>()
@@ -125,6 +129,16 @@ class PaginationTest: XCTestCase {
         })
         XCTAssertEqual(result.count, 2)
         XCTAssertEqual(result, [true, false])
+    }
+    
+    func testDalaLoaderErrorResponse() throws {
+        sut = Pagination.Sink(ui: uiSource, loadData: dataLoaderErrorResponse(request:))
+        XCTAssert(sut.hasMore)
+        let result = try awaitSingle(sut.error, actionHandler: { [weak self] in
+            self?.loadNextPageSubject.send()
+        })
+        XCTAssertTrue(result is Network.Errors, "Unexpected error type: \(type(of: result))")
+        XCTAssertEqual(result as? Network.Errors, .notFound)
     }
 
     var userList: [UserList.Model] {
