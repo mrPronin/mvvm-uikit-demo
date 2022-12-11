@@ -9,31 +9,13 @@ import XCTest
 import Combine
 @testable import mbition_ios
 
-class PaginationTest: XCTestCase {
+class PaginationTests: XCTestCase {
     typealias PaginationSink = Pagination.Sink<UserList.Model>
     var sut: PaginationSink!
     var uiSource: Pagination.UISource!
     var reloadSubject: PassthroughSubject<Void, Never>!
     var loadNextPageSubject: PassthroughSubject<Void, Never>!
     var subsciptions: Set<AnyCancellable>!
-    
-    func dataLoaderNormalResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
-        return Just<[UserList.Model]>(userList)
-            .setFailureType(to: Error.self)
-            .map { PaginationSink.Response(data: $0, since: request.since, nextSince: request.since + Pagination.perPage) }
-            .eraseToAnyPublisher()
-    }
-    
-    func dataLoaderEmptyResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
-        return Just<[UserList.Model]>([])
-            .setFailureType(to: Error.self)
-            .map { PaginationSink.Response(data: $0, since: request.since, nextSince: request.since + Pagination.perPage) }
-            .eraseToAnyPublisher()
-    }
-    
-    func dataLoaderErrorResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
-        return Fail(error: Network.Errors.notFound).eraseToAnyPublisher()
-    }
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -153,4 +135,23 @@ class PaginationTest: XCTestCase {
         }
         return userList
     }
+    
+    func dataLoaderNormalResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
+        return Just<[UserList.Model]>(userList)
+            .setFailureType(to: Error.self)
+            .map { PaginationSink.Response(data: $0, since: request.since, nextSince: request.since + Pagination.perPage) }
+            .eraseToAnyPublisher()
+    }
+    
+    func dataLoaderEmptyResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
+        return Just<[UserList.Model]>([])
+            .setFailureType(to: Error.self)
+            .map { PaginationSink.Response(data: $0, since: request.since, nextSince: request.since + Pagination.perPage) }
+            .eraseToAnyPublisher()
+    }
+    
+    func dataLoaderErrorResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
+        return Fail(error: Network.Errors.notFound).eraseToAnyPublisher()
+    }
+
 }
