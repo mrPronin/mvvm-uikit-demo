@@ -12,6 +12,25 @@ import Combine
 
 extension UserList.Service {
     class Mock: UserListService {
+        func userListWith(paginationRequest: Pagination.Sink<UserList.Model>.Request) -> AnyPublisher<Pagination.Sink<UserList.Model>.Response, Error>
+        {
+            if let error = error {
+                return Fail(error: error)
+                    .eraseToAnyPublisher()
+            }
+            if let userListArray = userListArray {
+                let response = Pagination.Sink<UserList.Model>.Response(
+                    data: userListArray,
+                    since: paginationRequest.since,
+                    nextSince: paginationRequest.since + Pagination.perPage
+                )
+                return Just(response)
+                    .setFailureType(to: Error.self)
+                    .eraseToAnyPublisher()
+            }
+            return Empty().eraseToAnyPublisher()
+        }
+        
         var error: Error?
         var userListArray: [UserList.Model]?
         var userList: AnyPublisher<[UserList.Model], Error> {
