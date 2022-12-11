@@ -10,3 +10,7 @@ import Foundation
 extension Endpoint where Kind == EndpointKinds.Public, Response == [UserList.Model], Payload == String {
     static var userList: Self { Endpoint(path: "users") }
 }
+
+extension Endpoint where Kind == EndpointKinds.Public, Response == UserList.Model, Payload == String {
+    static var userListWithPagination: Self { Endpoint(path: "users") }
+}
