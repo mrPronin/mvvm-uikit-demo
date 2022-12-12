@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-//@testable import mbition_ios
+@testable import mbition_ios
 
 extension UserList.Service {
     class Mock: UserListService {
