@@ -12,7 +12,7 @@ import XCTest
 
 class UserListNetworkIntegrationTests: XCTestCase {
     typealias PaginationSink = Pagination.Sink<UserList.Model>
-    func testSuccessfulUserListRequest() throws {
+    func testUserListSuccessfulResponse() throws {
         let session = URLSession(mockResponder: UserList.Service.MockDataURLResponder.self)
         let paginationRequest = PaginationSink.Request(since: 0)
         let publisher = session.publisherWith(
@@ -21,5 +21,14 @@ class UserListNetworkIntegrationTests: XCTestCase {
         )
         let result = try awaitMany(publisher)
         XCTAssertEqual(result.data, UserList.Model.mockedUserList)
+    }
+    func testUserListFailWithBadServerResponse() throws {
+        let session = URLSession(mockResponder: MockErrorURLResponder.self)
+        let paginationRequest = PaginationSink.Request(since: 0)
+        let publisher = session.publisherWith(
+            paginationRequest: paginationRequest,
+            for: .userListWithPagination
+        )
+        XCTAssertThrowsError(try awaitMany(publisher))
     }
 }

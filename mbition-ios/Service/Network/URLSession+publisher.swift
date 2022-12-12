@@ -21,6 +21,7 @@ extension URLSession {
         let nextSinceSubject = PassthroughSubject<Int?, Error>()
         return dataTaskPublisher(for: request)
             .tryMap({ [weak self] data, response in
+                defer { nextSinceSubject.send(completion: .finished) }
                 // If the response is invalid, throw an error
                 if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
                     throw Network.error(from: response.statusCode)
@@ -28,7 +29,6 @@ extension URLSession {
                 
                 let nextSince = self?.extractNextSince(from: (response as? HTTPURLResponse)?.allHeaderFields)
                 nextSinceSubject.send(nextSince)
-                nextSinceSubject.send(completion: .finished)
                 // Return Response data
                 return data
             })
@@ -53,11 +53,6 @@ extension URLSession {
                 if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
                     throw Network.error(from: response.statusCode)
                 }
-                // debug
-//                if let response = response as? HTTPURLResponse {
-//                    LOG("allHeaderFields: \(response.allHeaderFields)")
-//                }
-                // debug
                 // Return Response data
                 return data
             })
