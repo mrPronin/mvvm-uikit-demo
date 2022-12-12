@@ -28,6 +28,7 @@ extension URLSession {
                 
                 let nextSince = self?.extractNextSince(from: (response as? HTTPURLResponse)?.allHeaderFields)
                 nextSinceSubject.send(nextSince)
+                nextSinceSubject.send(completion: .finished)
                 // Return Response data
                 return data
             })

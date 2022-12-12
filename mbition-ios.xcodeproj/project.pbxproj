@@ -81,6 +81,7 @@
 		09AB231529472DD300F8C176 /* UserList+Service+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907AA4293CF3F300BA7148 /* UserList+Service+Mock.swift */; };
 		09AB231629472DDF00F8C176 /* UserDetails+Service-Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4442940E92600502E5B /* UserDetails+Service-Mock.swift */; };
 		09AB231729472DE300F8C176 /* UserDetails+MockURLResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB230E29472B9B00F8C176 /* UserDetails+MockURLResponder.swift */; };
+		09AB231929472F8000F8C176 /* UserList+Network+IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB231829472F8000F8C176 /* UserList+Network+IntegrationTests.swift */; };
 		09DD7A4B29429D8400649B7F /* UIImage+placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DD7A4A29429D8400649B7F /* UIImage+placeholder.swift */; };
 /* End PBXBuildFile section */
 
@@ -172,6 +173,7 @@
 		09AB2307294722BE00F8C176 /* UserList+MockURLResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserList+MockURLResponder.swift"; sourceTree = "<group>"; };
 		09AB230E29472B9B00F8C176 /* UserDetails+MockURLResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+MockURLResponder.swift"; sourceTree = "<group>"; };
 		09AB231029472C1900F8C176 /* UserDetails+mockedUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+mockedUserDetails.swift"; sourceTree = "<group>"; };
+		09AB231829472F8000F8C176 /* UserList+Network+IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserList+Network+IntegrationTests.swift"; sourceTree = "<group>"; };
 		09DD7A4A29429D8400649B7F /* UIImage+placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+placeholder.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -524,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				09AB23062947229200F8C176 /* Mock */,
+				09AB231829472F8000F8C176 /* UserList+Network+IntegrationTests.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -800,6 +803,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09AB23052947217700F8C176 /* UserList.Model+mockedUserList.swift in Sources */,
+				09AB231929472F8000F8C176 /* UserList+Network+IntegrationTests.swift in Sources */,
 				0948B2342943CA510055F048 /* XCTestCase+await.swift in Sources */,
 				09AB231529472DD300F8C176 /* UserList+Service+Mock.swift in Sources */,
 				0948B2382943CD5E0055F048 /* PaginationTests.swift in Sources */,
