@@ -56,8 +56,8 @@ class PaginationTests: XCTestCase {
         let result2 = try awaitSingle(sut.elements, actionHandler: { [weak self] in
             self?.reloadSubject.send()
         })
-        XCTAssertEqual(result1.count, userList.count)
-        XCTAssertEqual(result2.count, userList.count)
+        XCTAssertEqual(result1.count, UserList.Model.mockedUserList.count)
+        XCTAssertEqual(result2.count, UserList.Model.mockedUserList.count)
         XCTAssertEqual(result1, result2)
         XCTAssert(sut.pages.count == 1)
         XCTAssert(sut.pages.first?.key == 0)
@@ -70,7 +70,7 @@ class PaginationTests: XCTestCase {
             self?.reloadSubject.send()
         })
         // Check if first page loaded
-        XCTAssertEqual(reloadResult.count, userList.count)
+        XCTAssertEqual(reloadResult.count, UserList.Model.mockedUserList.count)
         XCTAssert(sut.pages.count == 1)
         XCTAssert(sut.pages.first?.key == 0)
         
@@ -123,21 +123,8 @@ class PaginationTests: XCTestCase {
         XCTAssertEqual(result as? Network.Errors, .notFound)
     }
 
-    var userList: [UserList.Model] {
-        let testBundle = Bundle(for: type(of: self))
-        let path = testBundle.path(forResource: "user-list", ofType: "json")!
-        let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-        var userList: [UserList.Model] = []
-        do {
-            userList = try JSONDecoder().decode([UserList.Model].self, from: data!)
-        } catch {
-            LOG(error)
-        }
-        return userList
-    }
-    
     func dataLoaderNormalResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
-        return Just<[UserList.Model]>(userList)
+        return Just<[UserList.Model]>(UserList.Model.mockedUserList)
             .setFailureType(to: Error.self)
             .map { PaginationSink.Response(data: $0, since: request.since, nextSince: request.since + Pagination.perPage) }
             .eraseToAnyPublisher()
@@ -153,5 +140,4 @@ class PaginationTests: XCTestCase {
     func dataLoaderErrorResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
         return Fail(error: Network.Errors.notFound).eraseToAnyPublisher()
     }
-
 }
