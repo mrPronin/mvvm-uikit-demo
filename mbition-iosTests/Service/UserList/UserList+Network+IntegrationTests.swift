@@ -15,9 +15,7 @@ class UserListNetworkIntegrationTests: XCTestCase {
     func testUserListSuccessfulResponse() throws {
         let session = URLSession(mockResponder: UserList.Service.MockDataURLResponder.self)
         let paginationRequest = PaginationSink.Request(since: 0)
-        let publisher = session.publisherWith(
-            paginationRequest: paginationRequest,
-            for: .userListWithPagination
+        let publisher = session.publisherWithPagination(for: .userListWith(paginationRequest: paginationRequest)
         )
         let result = try awaitMany(publisher)
         XCTAssertEqual(result.data, UserList.Model.mockedUserList)
@@ -25,9 +23,7 @@ class UserListNetworkIntegrationTests: XCTestCase {
     func testUserListFailWithBadServerResponse() throws {
         let session = URLSession(mockResponder: MockErrorURLResponder.self)
         let paginationRequest = PaginationSink.Request(since: 0)
-        let publisher = session.publisherWith(
-            paginationRequest: paginationRequest,
-            for: .userListWithPagination
+        let publisher = session.publisherWithPagination(for: .userListWith(paginationRequest: paginationRequest)
         )
         XCTAssertThrowsError(try awaitMany(publisher))
     }

@@ -9,8 +9,7 @@ import Foundation
 import Combine
 
 extension URLSession {
-    func publisherWith<Kind, Response, Payload>(
-        paginationRequest: Pagination.Sink<Response>.Request,
+    func publisherWithPagination<Kind, Response, Payload>(
         for endpoint: Endpoint<Kind, Response, Payload>,
         using requestData: Kind.RequestData? = nil,
         decoder: JSONDecoder = .init()
@@ -34,7 +33,7 @@ extension URLSession {
             })
             .decode(type: [Response].self, decoder: JSONDecoder())
             .withLatestFrom(nextSinceSubject)
-            .map { Pagination.Sink<Response>.Response(data: $0.0, since: paginationRequest.since, nextSince: $0.1) }
+            .map { Pagination.Sink<Response>.Response(data: $0.0, since: endpoint.paginationRequest?.since ?? 0, nextSince: $0.1) }
             .mapError { Network.handleError($0) }
             .eraseToAnyPublisher()
     }

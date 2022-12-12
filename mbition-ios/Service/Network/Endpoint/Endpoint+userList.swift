@@ -12,5 +12,16 @@ extension Endpoint where Kind == EndpointKinds.Public, Response == [UserList.Mod
 }
 
 extension Endpoint where Kind == EndpointKinds.Public, Response == UserList.Model, Payload == String {
-    static var userListWithPagination: Self { Endpoint(path: "users") }
+    static func userListWith(paginationRequest: Pagination.Sink<Response>.Request) -> Self {
+        var queryItems = [URLQueryItem]()
+        queryItems.append(URLQueryItem(name: "per_page", value: String(paginationRequest.perPage)))
+        if paginationRequest.since > 0 {
+            queryItems.append(URLQueryItem(name: "since", value: String(paginationRequest.since)))
+        }
+        return Endpoint(
+            path: "users",
+            queryItems: queryItems,
+            paginationRequest: paginationRequest
+        )
+    }
 }

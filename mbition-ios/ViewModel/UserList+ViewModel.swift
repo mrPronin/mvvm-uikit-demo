@@ -31,20 +31,19 @@ extension UserList.ViewModel {
 
 // Implement view model
 extension UserList.ViewModel {
-    // TODO: change to struct
     struct Implementation: UserListViewModel {
+        typealias PaginationSink = Pagination.Sink<UserList.Model>
         func transform(input: UserList.ViewModel.Input) -> UserList.ViewModel.Output {
-            // debug
-//            input.loadNextPage
-//                .sink {
-//                    LOG("loadNextPage")
-//                }
-//                .store(in: &subscriptions)
-            // debug
+            let uiSource = Pagination.UISource(
+                reload: input.load,
+                loadNextPage: input.loadNextPage
+            )
+            let sink = PaginationSink(ui: uiSource, loadData: userListService.userListWith(paginationRequest:))
+            
             return UserList.ViewModel.Output(
-                userList: userList(input),
-                error: errorSubject.eraseToAnyPublisher(),
-                activityIndicator: activityIndicatorSubject.eraseToAnyPublisher()
+                userList: sink.elements,
+                error: sink.error,
+                activityIndicator: sink.activityIndicator
             )
         }
         
@@ -53,32 +52,6 @@ extension UserList.ViewModel {
             self.userListService = userListService
         }
         // MARK: - Logic
-        func userList(_ input: UserList.ViewModel.Input) -> AnyPublisher<[UserList.Model], Never> {
-            return input.load
-                .subscribe(on: DispatchQueue.global(qos: .default))
-                .handleEvents(receiveOutput: { _ in
-                    // show activity indicator and loading banner
-                    self.activityIndicatorSubject.send(true)
-                })
-                .flatMap { _ in self.userListService.userList }
-                .receive(on: DispatchQueue.main)
-                // debug
-//                .delay(for: .seconds(1), scheduler: DispatchQueue.main)
-                // debug
-                .handleEvents(receiveOutput: { list in
-                    // hide activity indicator and loading banner
-                    self.activityIndicatorSubject.send(false)
-
-                })
-                .catch { error -> AnyPublisher<[UserList.Model], Never> in
-                    DispatchQueue.main.async {
-                        self.activityIndicatorSubject.send(false)
-                        self.errorSubject.send(error)
-                    }
-                    return Empty().eraseToAnyPublisher()
-                }
-                .eraseToAnyPublisher()
-        }
         
         // MARK: - Dependency
         private let userListService: UserListService
@@ -86,8 +59,5 @@ extension UserList.ViewModel {
         // MARK: - Private
         private let errorSubject = PassthroughSubject<Error, Never>()
         private let activityIndicatorSubject = PassthroughSubject<Bool, Never>()
-        // debug
-//        var subscriptions = Set<AnyCancellable>()
-        // debug
     }
 }

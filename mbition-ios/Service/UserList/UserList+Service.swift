@@ -26,7 +26,9 @@ extension UserList.Service {
                 .eraseToAnyPublisher()
         }
         func userListWith(paginationRequest: Pagination.Sink<UserList.Model>.Request) -> AnyPublisher<Pagination.Sink<UserList.Model>.Response, Error> {
-            return URLSession.shared.publisherWith(paginationRequest: paginationRequest, for: .userListWithPagination)
+            return URLSession.shared.publisherWithPagination(for: .userListWith(paginationRequest: paginationRequest))
+                .subscribe(on: DispatchQueue.global(qos: .default))
+                .receive(on: DispatchQueue.main)
                 .eraseToAnyPublisher()
         }
     }

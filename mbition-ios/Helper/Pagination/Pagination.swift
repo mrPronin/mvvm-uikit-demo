@@ -39,7 +39,7 @@ extension Pagination.Sink {
 
 // Define response
 extension Pagination.Sink {
-    struct Response: Codable {
+    struct Response {
         let data: [T]
         let since: Int
         let nextSince: Int?

@@ -7,16 +7,24 @@
 
 import Foundation
 
-struct Endpoint<Kind: EndpointKind, Response: Decodable, Payload: Encodable> {
+struct Endpoint<Kind: EndpointKind, Response: Codable, Payload: Encodable> {
     let method: Network.HTTPMethod
     let path: String
     let queryItems: [URLQueryItem]?
     let payload: Payload?
-    init(path: String, method: Network.HTTPMethod = .get, queryItems: [URLQueryItem]? = nil, payload: Payload? = nil) {
+    let paginationRequest: Pagination.Sink<Response>.Request?
+    init(
+        path: String,
+        method: Network.HTTPMethod = .get,
+        queryItems: [URLQueryItem]? = nil,
+        payload: Payload? = nil,
+        paginationRequest: Pagination.Sink<Response>.Request? = nil
+    ) {
         self.path = path
         self.method = method
         self.queryItems = queryItems
         self.payload = payload
+        self.paginationRequest = paginationRequest
     }
 }
 
