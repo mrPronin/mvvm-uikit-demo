@@ -10,7 +10,7 @@ import Foundation
 
 extension UserDetails.Model {
     static var mockedUserDetails: UserDetails.Model? {
-        let testBundle = Bundle(for: UserDetails.ViewController.self)
+        let testBundle = Bundle(for: PaginationTests.self)
         let path = testBundle.path(forResource: "user-details", ofType: "json")!
         let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
         var userDetails: UserDetails.Model?
