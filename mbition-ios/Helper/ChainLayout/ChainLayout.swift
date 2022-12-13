@@ -31,25 +31,24 @@ public extension ChainLayout where Base: UIView {
     }
 
     func top(_ constant: CGFloat = 0, relation: NSLayoutConstraint.Relation = .equal, toSafeArea: Bool = false) -> Self {
-        if let parent = base.superview {
-            if #available(iOS 11, *), toSafeArea {
-                constraints.append(
-                    connect(
-                        base.topAnchor,
-                        to: parent.safeAreaLayoutGuide.topAnchor,
-                        with: relation,
-                        constant: constant)
+        guard let parent = base.superview else { return self }
+        if #available(iOS 11, *), toSafeArea {
+            constraints.append(
+                connect(
+                    base.topAnchor,
+                    to: parent.safeAreaLayoutGuide.topAnchor,
+                    with: relation,
+                    constant: constant)
+            )
+        } else {
+            constraints.append(
+                connect(
+                    base.topAnchor,
+                    to: parent.topAnchor,
+                    with: relation,
+                    constant: constant
                 )
-            } else {
-                constraints.append(
-                    connect(
-                        base.topAnchor,
-                        to: parent.topAnchor,
-                        with: relation,
-                        constant: constant
-                    )
-                )
-            }
+            )
         }
         return self
     }
@@ -67,26 +66,25 @@ public extension ChainLayout where Base: UIView {
     }
 
     func bottom(_ constant: CGFloat = 0, relation: NSLayoutConstraint.Relation = .equal, toSafeArea: Bool = false) -> Self {
-        if let parent = base.superview {
-            if #available(iOS 11, *), toSafeArea {
-                constraints.append(
-                    connect(
-                        base.bottomAnchor,
-                        to: parent.safeAreaLayoutGuide.bottomAnchor,
-                        with: relation,
-                        constant: -constant
-                    )
+        guard let parent = base.superview else { return self }
+        if #available(iOS 11, *), toSafeArea {
+            constraints.append(
+                connect(
+                    base.bottomAnchor,
+                    to: parent.safeAreaLayoutGuide.bottomAnchor,
+                    with: relation,
+                    constant: -constant
                 )
-            } else {
-                constraints.append(
-                    connect(
-                        base.bottomAnchor,
-                        to: parent.bottomAnchor,
-                        with: relation,
-                        constant: -constant
-                    )
+            )
+        } else {
+            constraints.append(
+                connect(
+                    base.bottomAnchor,
+                    to: parent.bottomAnchor,
+                    with: relation,
+                    constant: -constant
                 )
-            }
+            )
         }
         return self
     }
@@ -104,26 +102,25 @@ public extension ChainLayout where Base: UIView {
     }
 
     func left(_ constant: CGFloat = 0, relation: NSLayoutConstraint.Relation = .equal, toSafeArea: Bool = false) -> Self {
-        if let parent = base.superview {
-            if #available(iOS 11, *), toSafeArea {
-                constraints.append(
-                    connect(
-                        base.leftAnchor,
-                        to: parent.safeAreaLayoutGuide.leftAnchor,
-                        with: relation,
-                        constant: constant
-                    )
+        guard let parent = base.superview else { return self }
+        if #available(iOS 11, *), toSafeArea {
+            constraints.append(
+                connect(
+                    base.leftAnchor,
+                    to: parent.safeAreaLayoutGuide.leftAnchor,
+                    with: relation,
+                    constant: constant
                 )
-            } else {
-                constraints.append(
-                    connect(
-                        base.leftAnchor,
-                        to: parent.leftAnchor,
-                        with: relation,
-                        constant: constant
-                    )
+            )
+        } else {
+            constraints.append(
+                connect(
+                    base.leftAnchor,
+                    to: parent.leftAnchor,
+                    with: relation,
+                    constant: constant
                 )
-            }
+            )
         }
         return self
     }
@@ -141,26 +138,25 @@ public extension ChainLayout where Base: UIView {
     }
 
     func leading(_ constant: CGFloat = 0, relation: NSLayoutConstraint.Relation = .equal, toSafeArea: Bool = false) -> Self {
-        if let parent = base.superview {
-            if #available(iOS 11, *), toSafeArea {
-                constraints.append(
-                    connect(
-                        base.leadingAnchor,
-                        to: parent.safeAreaLayoutGuide.leadingAnchor,
-                        with: relation,
-                        constant: constant
-                    )
+        guard let parent = base.superview else { return self }
+        if #available(iOS 11, *), toSafeArea {
+            constraints.append(
+                connect(
+                    base.leadingAnchor,
+                    to: parent.safeAreaLayoutGuide.leadingAnchor,
+                    with: relation,
+                    constant: constant
                 )
-            } else {
-                constraints.append(
-                    connect(
-                        base.leadingAnchor,
-                        to: parent.leadingAnchor,
-                        with: relation,
-                        constant: constant
-                    )
+            )
+        } else {
+            constraints.append(
+                connect(
+                    base.leadingAnchor,
+                    to: parent.leadingAnchor,
+                    with: relation,
+                    constant: constant
                 )
-            }
+            )
         }
         return self
     }
@@ -178,26 +174,25 @@ public extension ChainLayout where Base: UIView {
     }
 
     func right(_ constant: CGFloat = 0, relation: NSLayoutConstraint.Relation = .equal, toSafeArea: Bool = false) -> Self {
-        if let parent = base.superview {
-            if #available(iOS 11, *), toSafeArea {
-                constraints.append(
-                    connect(
-                        base.rightAnchor,
-                        to: parent.safeAreaLayoutGuide.rightAnchor,
-                        with: relation,
-                        constant: -constant
-                    )
+        guard let parent = base.superview else { return self }
+        if #available(iOS 11, *), toSafeArea {
+            constraints.append(
+                connect(
+                    base.rightAnchor,
+                    to: parent.safeAreaLayoutGuide.rightAnchor,
+                    with: relation,
+                    constant: -constant
                 )
-            } else {
-                constraints.append(
-                    connect(
-                        base.rightAnchor,
-                        to: parent.rightAnchor,
-                        with: relation,
-                        constant: -constant
-                    )
+            )
+        } else {
+            constraints.append(
+                connect(
+                    base.rightAnchor,
+                    to: parent.rightAnchor,
+                    with: relation,
+                    constant: -constant
                 )
-            }
+            )
         }
         return self
     }
@@ -215,26 +210,25 @@ public extension ChainLayout where Base: UIView {
     }
 
     func trailing(_ constant: CGFloat = 0, relation: NSLayoutConstraint.Relation = .equal, toSafeArea: Bool = false) -> Self {
-        if let parent = base.superview {
-            if #available(iOS 11, *), toSafeArea {
-                constraints.append(
-                    connect(
-                        base.trailingAnchor,
-                        to: parent.safeAreaLayoutGuide.trailingAnchor,
-                        with: relation,
-                        constant: -constant
-                    )
+        guard let parent = base.superview else { return self }
+        if #available(iOS 11, *), toSafeArea {
+            constraints.append(
+                connect(
+                    base.trailingAnchor,
+                    to: parent.safeAreaLayoutGuide.trailingAnchor,
+                    with: relation,
+                    constant: -constant
                 )
-            } else {
-                constraints.append(
-                    connect(
-                        base.trailingAnchor,
-                        to: parent.trailingAnchor,
-                        with: relation,
-                        constant: -constant
-                    )
+            )
+        } else {
+            constraints.append(
+                connect(
+                    base.trailingAnchor,
+                    to: parent.trailingAnchor,
+                    with: relation,
+                    constant: -constant
                 )
-            }
+            )
         }
         return self
     }
@@ -252,30 +246,28 @@ public extension ChainLayout where Base: UIView {
     }
 
     func centerX(_ constant: CGFloat = 0, relation: NSLayoutConstraint.Relation = .equal) -> Self {
-        if let parent = base.superview {
-            constraints.append(
-                connect(
-                    base.centerXAnchor,
-                    to: parent.centerXAnchor,
-                    with: relation,
-                    constant: constant
-                )
+        guard let parent = base.superview else { return self }
+        constraints.append(
+            connect(
+                base.centerXAnchor,
+                to: parent.centerXAnchor,
+                with: relation,
+                constant: constant
             )
-        }
+        )
         return self
     }
 
     func centerY(_ constant: CGFloat = 0, relation: NSLayoutConstraint.Relation = .equal) -> Self {
-        if let parent = base.superview {
-            constraints.append(
-                connect(
-                    base.centerYAnchor,
-                    to: parent.centerYAnchor,
-                    with: relation,
-                    constant: constant
-                )
+        guard let parent = base.superview else { return self }
+        constraints.append(
+            connect(
+                base.centerYAnchor,
+                to: parent.centerYAnchor,
+                with: relation,
+                constant: constant
             )
-        }
+        )
         return self
     }
 
