@@ -10,7 +10,6 @@ import Combine
 
 // Define service protocol
 protocol UserListService {
-    var userList: AnyPublisher<[UserList.Model], Error> { get }
     func userListWith(paginationRequest: Pagination.Sink<UserList.Model>.Request) -> AnyPublisher<Pagination.Sink<UserList.Model>.Response, Error>
 }
 
@@ -21,10 +20,6 @@ extension UserList { enum Service {} }
 extension UserList.Service {
     struct Implementation: UserListService {
         // MARK: - Public
-        var userList: AnyPublisher<[UserList.Model], Error> {
-            return URLSession.shared.publisher(for: .userList)
-                .eraseToAnyPublisher()
-        }
         func userListWith(paginationRequest: Pagination.Sink<UserList.Model>.Request) -> AnyPublisher<Pagination.Sink<UserList.Model>.Response, Error> {
             return URLSession.shared.publisherWithPagination(for: .userListWith(paginationRequest: paginationRequest))
                 .subscribe(on: DispatchQueue.global(qos: .default))
