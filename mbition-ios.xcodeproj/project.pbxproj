@@ -86,6 +86,7 @@
 		09AB231E2949219E00F8C176 /* EndpointKinds+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB231D2949219E00F8C176 /* EndpointKinds+Stub.swift */; };
 		09AB2320294921BB00F8C176 /* URLHost+expectedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB231F294921BB00F8C176 /* URLHost+expectedURL.swift */; };
 		09AB2322294922F600F8C176 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB2321294922F600F8C176 /* EndpointTests.swift */; };
+		09AB2325294927F700F8C176 /* UserDetails+ViewModel+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AB2324294927F700F8C176 /* UserDetails+ViewModel+Tests.swift */; };
 		09DD7A4B29429D8400649B7F /* UIImage+placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DD7A4A29429D8400649B7F /* UIImage+placeholder.swift */; };
 /* End PBXBuildFile section */
 
@@ -182,6 +183,7 @@
 		09AB231D2949219E00F8C176 /* EndpointKinds+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EndpointKinds+Stub.swift"; sourceTree = "<group>"; };
 		09AB231F294921BB00F8C176 /* URLHost+expectedURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLHost+expectedURL.swift"; sourceTree = "<group>"; };
 		09AB2321294922F600F8C176 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
+		09AB2324294927F700F8C176 /* UserDetails+ViewModel+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+ViewModel+Tests.swift"; sourceTree = "<group>"; };
 		09DD7A4A29429D8400649B7F /* UIImage+placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+placeholder.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -351,9 +353,10 @@
 			isa = PBXGroup;
 			children = (
 				0948B2332943CA510055F048 /* XCTestCase+await.swift */,
-				09AB23032947213A00F8C176 /* Model */,
-				0948B2352943CD280055F048 /* Helper */,
 				09907AA0293CF06200BA7148 /* Service */,
+				09AB23032947213A00F8C176 /* Model */,
+				09AB2323294927AD00F8C176 /* ViewModel */,
+				0948B2352943CD280055F048 /* Helper */,
 			);
 			path = "mbition-iosTests";
 			sourceTree = "<group>";
@@ -652,6 +655,14 @@
 			path = Endpoint;
 			sourceTree = "<group>";
 		};
+		09AB2323294927AD00F8C176 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				09AB2324294927F700F8C176 /* UserDetails+ViewModel+Tests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -824,6 +835,7 @@
 			files = (
 				09AB23052947217700F8C176 /* UserList.Model+mockedUserList.swift in Sources */,
 				09AB2320294921BB00F8C176 /* URLHost+expectedURL.swift in Sources */,
+				09AB2325294927F700F8C176 /* UserDetails+ViewModel+Tests.swift in Sources */,
 				09AB231B2947B3A000F8C176 /* UserDetails+Network+IntegrationTests.swift in Sources */,
 				09AB231929472F8000F8C176 /* UserList+Network+IntegrationTests.swift in Sources */,
 				0948B2342943CA510055F048 /* XCTestCase+await.swift in Sources */,

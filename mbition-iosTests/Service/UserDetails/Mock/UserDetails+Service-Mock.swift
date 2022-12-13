@@ -12,6 +12,7 @@ import Combine
 
 extension UserDetails.Service {
     class Mock: UserDetailsService {
+        // MARK: - Public
         var error: Error?
         var userDetails: UserDetails.Model?
         
@@ -27,5 +28,7 @@ extension UserDetails.Service {
             }
             return Empty().eraseToAnyPublisher()
         }
+        
+        // MARK: - Private
     }
 }
