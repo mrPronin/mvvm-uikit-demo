@@ -11,15 +11,21 @@ import Combine
 
 class CacheServiceTests: XCTestCase {
     var sut: Cache.Service.InMemory<URL, UIImage>!
+    var testImage: UIImage!
+    var testURL: URL!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         sut = .init(costProvider: UIImage.estimatedSize)
+        testImage = getTestImageWith(height: 10, with: 10, color: .red)!
+        testURL = URL(string: "https://example.com/test_image")!
     }
     
     override func tearDownWithError() throws {
         try super.tearDownWithError()
         sut = nil
+        testImage = nil
+        testURL = nil
     }
     
     func testCacheInitWithDefaultConfig() throws {
@@ -28,8 +34,6 @@ class CacheServiceTests: XCTestCase {
     }
     
     func testInsertAndGetValueForKey() throws {
-        let testImage = getTestImageWith(height: 10, with: 10, color: .red)!
-        let testURL = URL(string: "https://example.com/test_image")!
         XCTAssertNil(sut.value(forKey: testURL))
         sut.insert(testImage, forKey: testURL)
         let result = sut.value(forKey: testURL)
@@ -37,8 +41,6 @@ class CacheServiceTests: XCTestCase {
     }
     
     func testRemoveValueForKey() throws {
-        let testImage = getTestImageWith(height: 10, with: 10, color: .red)!
-        let testURL = URL(string: "https://example.com/test_image")!
         XCTAssertNil(sut.value(forKey: testURL))
         sut.insert(testImage, forKey: testURL)
         let result = sut.value(forKey: testURL)
@@ -48,8 +50,6 @@ class CacheServiceTests: XCTestCase {
     }
     
     func testRemoveAll() throws {
-        let testImage = getTestImageWith(height: 10, with: 10, color: .red)!
-        let testURL = URL(string: "https://example.com/test_image")!
         XCTAssertNil(sut.value(forKey: testURL))
         sut.insert(testImage, forKey: testURL)
         XCTAssertEqual(sut.value(forKey: testURL), testImage)
@@ -58,8 +58,6 @@ class CacheServiceTests: XCTestCase {
     }
     
     func testSubscript() throws {
-        let testImage = getTestImageWith(height: 10, with: 10, color: .red)!
-        let testURL = URL(string: "https://example.com/test_image")!
         XCTAssertNil(sut[testURL])
         sut[testURL] = testImage
         XCTAssertEqual(sut[testURL], testImage)
