@@ -35,6 +35,7 @@ Implementation details:
     - bare minimum testing for view controllers and views
 
 Potential improvements:
+- add splash-screen
 - generic navigation approach + unit-tests
 - generic font scheme to support white-label
 - network availability + UI

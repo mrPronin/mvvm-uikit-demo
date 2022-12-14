@@ -57,9 +57,6 @@ extension UserDetails.ViewModel {
                 })
                 .flatMap { _ in self.userDetailsService.fetchUserDetails(with: self.userListModel.login) }
                 .receive(on: DispatchQueue.main)
-                // debug
-//                .delay(for: .seconds(1), scheduler: DispatchQueue.main)
-                // debug
                 .handleEvents(receiveOutput: { _ in
                     // hide activity indicator and loading banner
                     self.activityIndicatorSubject.send(false)
