@@ -28,10 +28,10 @@ extension ImageLoader.Service {
                 return Just(image).eraseToAnyPublisher()
             }
             return URLSession.shared.dataTaskPublisher(for: url)
-                .map { (data, response) -> UIImage? in return UIImage(data: data) }
+                .map { (data, _) -> UIImage? in return UIImage(data: data) }
                 .compactMap { $0 }
                 .map { $0.decoded }
-                .catch { error in return Just(nil) }
+                .catch { _ in return Just(nil) }
                 .handleEvents(receiveOutput: {[unowned self] image in
                     guard let image = image else { return }
                     self.cache[url] = image

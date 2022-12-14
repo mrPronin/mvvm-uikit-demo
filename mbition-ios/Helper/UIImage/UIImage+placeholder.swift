@@ -10,4 +10,3 @@ import UIKit
 extension UIImage {
     static let placeholder = UIImage(systemName: "person", withConfiguration: UIImage.SymbolConfiguration(weight: .ultraLight))?.withTintColor(.lightGray, renderingMode: .alwaysOriginal)
 }
-

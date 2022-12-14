@@ -50,4 +50,3 @@ extension JSONEncoder: Then {}
 extension UIEdgeInsets: Then {}
 extension UIOffset: Then {}
 extension UIRectEdge: Then {}
-

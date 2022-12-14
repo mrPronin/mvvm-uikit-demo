@@ -141,7 +141,7 @@ extension UserDetails.ViewController {
                     (String(userDetails.followers), "Followers:"),
                     (String(userDetails.following), "Following:"),
                     (userDetails.createdAt, "Created at:"),
-                    (userDetails.updatedAt, "Updated at:"),
+                    (userDetails.updatedAt, "Updated at:")
                 ]
                     .map { TitleAndValueView(title: $0.1, value: $0.0) }
                     .forEach { [weak self] in self?.detailsSectionView.contentStackView.addArrangedSubview($0) }

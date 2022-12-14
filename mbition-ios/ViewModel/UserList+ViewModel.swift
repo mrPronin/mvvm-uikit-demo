@@ -30,6 +30,7 @@ extension UserList.ViewModel {
 }
 
 // Implement view model
+// swiftlint:disable nesting
 extension UserList.ViewModel {
     struct Implementation: UserListViewModel {
         typealias PaginationSink = Pagination.Sink<UserList.Model>

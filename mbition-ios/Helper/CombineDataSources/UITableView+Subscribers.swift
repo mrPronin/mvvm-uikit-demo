@@ -25,6 +25,7 @@ extension UITableView {
             return sectionsSubscriber(.init(cellIdentifier: cellIdentifier, cellType: cellType, cellConfig: cellConfig))
     }
     
+    // swiftlint:disable multiple_closures_with_trailing_closure
     /// A table view specific `Subscriber` that receives `[[Element]]` input and updates a sectioned table view.
     /// - Parameter source: A configured `TableViewItemsController<Items>` instance.
     public func sectionsSubscriber<Items>(_ source: TableViewItemsController<Items>)
@@ -87,4 +88,3 @@ extension UITableView {
             }) { _ in }
     }
 }
-

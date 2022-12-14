@@ -8,6 +8,7 @@
 
 import Combine
 
+// swiftlint:disable nesting
 extension Publishers {
     public struct WithLatestFrom<Upstream: Publisher, Other: Publisher>:
         Publisher where Upstream.Failure == Other.Failure {
@@ -63,9 +64,7 @@ private extension Publishers.WithLatestFrom {
         from mergedStream: AnyPublisher<MergedElement, Failure>
     ) -> AnyPublisher<Output, Failure> {
         mergedStream
-            .scan(nil) {
-                (prevResult: ScanResult?,
-                mergedElement: MergedElement) -> ScanResult? in
+            .scan(nil) { (prevResult: ScanResult?, mergedElement: MergedElement) -> ScanResult? in
 
                 var newValue1: Upstream.Output?
                 var newValue2: Other.Output?

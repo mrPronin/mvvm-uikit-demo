@@ -83,5 +83,3 @@ extension UserDetails.ViewModel {
         private let activityIndicatorSubject = PassthroughSubject<Bool, Never>()
     }
 }
-
-

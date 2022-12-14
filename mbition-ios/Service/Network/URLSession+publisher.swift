@@ -60,7 +60,7 @@ extension URLSession {
             .eraseToAnyPublisher()
     }
     
-    func extractNextSince(from allHeaders: [AnyHashable : Any]?) -> Int? {
+    func extractNextSince(from allHeaders: [AnyHashable: Any]?) -> Int? {
         guard let allHeaders = allHeaders else { return nil }
         guard let linkHeader = allHeaders["Link"] as? String else { return nil }
         guard let partWithSince = linkHeader.split(separator: ",").first(where: { $0.contains("since=") }) else { return nil }

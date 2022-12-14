@@ -7,6 +7,7 @@
 
 import Foundation
 
+// swiftlint:disable nesting
 extension UserDetails {
     struct Model: Codable, Hashable {
         let name: String?

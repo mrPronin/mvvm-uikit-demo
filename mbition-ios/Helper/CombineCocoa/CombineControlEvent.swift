@@ -12,6 +12,7 @@ import UIKit.UIControl
 
 // MARK: - Publisher
 @available(iOS 13.0, *)
+// swiftlint:disable nesting
 public extension Combine.Publishers {
     /// A Control Event is a publisher that emits whenever the provided
     /// Control Events fire.

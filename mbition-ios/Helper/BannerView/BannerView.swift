@@ -38,7 +38,6 @@ class BannerView: UIView {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    
     // MARK: - Private
     private let message: String
     var subscriptions = Set<AnyCancellable>()

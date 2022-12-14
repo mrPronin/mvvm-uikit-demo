@@ -341,7 +341,7 @@ public extension ChainLayout where Base: UIView {
         return self
     }
     
-    func fill(_ margin: CGFloat = 0) ->Self {
+    func fill(_ margin: CGFloat = 0) -> Self {
         return left(margin).right(margin).top(margin).bottom(margin)
     }
     
@@ -350,7 +350,7 @@ public extension ChainLayout where Base: UIView {
         to anchor2: NSLayoutAnchor<Axis>,
         with relation: NSLayoutConstraint.Relation,
         constant: CGFloat
-    ) -> NSLayoutConstraint{
+    ) -> NSLayoutConstraint {
         switch relation {
         case .equal:
             return anchor1.constraint(equalTo: anchor2, constant: constant)
@@ -378,4 +378,3 @@ public extension ChainLayout where Base: UIView {
         }
     }
 }
-

@@ -32,7 +32,6 @@
 		096BB4782942720A00502E5B /* ImageLoader+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096BB4772942720A00502E5B /* ImageLoader+Service.swift */; };
 		09907A41293CBA9000BA7148 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A40293CBA9000BA7148 /* AppDelegate.swift */; };
 		09907A43293CBA9000BA7148 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A42293CBA9000BA7148 /* SceneDelegate.swift */; };
-		09907A45293CBA9000BA7148 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09907A44293CBA9000BA7148 /* ViewController.swift */; };
 		09907A48293CBA9000BA7148 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09907A46293CBA9000BA7148 /* Main.storyboard */; };
 		09907A4A293CBA9100BA7148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09907A49293CBA9100BA7148 /* Assets.xcassets */; };
 		09907A4D293CBA9100BA7148 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09907A4B293CBA9100BA7148 /* LaunchScreen.storyboard */; };
@@ -138,7 +137,6 @@
 		09907A3D293CBA9000BA7148 /* mbition-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mbition-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09907A40293CBA9000BA7148 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09907A42293CBA9000BA7148 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		09907A44293CBA9000BA7148 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		09907A47293CBA9000BA7148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09907A49293CBA9100BA7148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09907A4C293CBA9100BA7148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -353,7 +351,6 @@
 			children = (
 				09907A40293CBA9000BA7148 /* AppDelegate.swift */,
 				09907A42293CBA9000BA7148 /* SceneDelegate.swift */,
-				09907A44293CBA9000BA7148 /* ViewController.swift */,
 				09907A70293CBD8D00BA7148 /* Constants.swift */,
 				09907A72293CBE4900BA7148 /* Appearance */,
 				09907A93293CDDFD00BA7148 /* Namespace */,
@@ -880,7 +877,6 @@
 				0948B23C2943E7D40055F048 /* Combine+withLatestFrom.swift in Sources */,
 				09907AAB293CF67C00BA7148 /* UserList+Assembly.swift in Sources */,
 				09907A8F293CC7B500BA7148 /* UserDetails+ViewModel.swift in Sources */,
-				09907A45293CBA9000BA7148 /* ViewController.swift in Sources */,
 				096BB4692942350A00502E5B /* String+nilIfEmpty.swift in Sources */,
 				09907AD8293D2AA900BA7148 /* URLSession+publisher.swift in Sources */,
 				09907ACF293D289500BA7148 /* URLHost.swift in Sources */,

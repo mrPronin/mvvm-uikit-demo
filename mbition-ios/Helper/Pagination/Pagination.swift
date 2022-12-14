@@ -71,6 +71,7 @@ extension Pagination {
         private var subscriptions = Set<AnyCancellable>()
 
         // MARK: - Init
+        // swiftlint:disable function_body_length
         init(ui: Pagination.UISource, loadData: @escaping LoadDataHandler) {
             activityIndicator = activityIndicatorSubject.eraseToAnyPublisher()
             elements = elementsSubject.eraseToAnyPublisher()
@@ -135,7 +136,7 @@ extension Pagination {
             pageStream
                 .map { (since: $0.since, items: $0.data) }
                 .withLatestFrom($pages)
-                .map { [unowned self] in $0.0.since == 0 ? [0 : $0.0.items] : self.mergePages(newPage: [$0.0.since : $0.0.items], pages: $0.1) }
+                .map { [unowned self] in $0.0.since == 0 ? [0: $0.0.items] : self.mergePages(newPage: [$0.0.since: $0.0.items], pages: $0.1) }
                 .assign(to: &$pages)
             
             // Prepare items list
@@ -147,7 +148,7 @@ extension Pagination {
                 .store(in: &subscriptions)
         }
         
-        private func mergePages(newPage: [Int : [T]], pages: [Int : [T]]) -> [Int : [T]] {
+        private func mergePages(newPage: [Int: [T]], pages: [Int: [T]]) -> [Int: [T]] {
             return pages.merging(newPage, uniquingKeysWith: { (_, new) in new })
         }
     }
