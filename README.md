@@ -2,27 +2,41 @@
 
 Tech challenge from MBition
 
-Language: Swift
+Description:
+- Language: Swift
+- Architecture: MVVM + Combine
+- UI: UIKit (built programmatically with declarative approach)
 
-Architecture: MVVM + Combine
-
-UI: UIKit (built programmatically with declarative approach)
-
-Other:
-- generic network / endpoints
+Implementation details:
 - namespaces
 - service layer:
+    - generic network / endpoints
     - generic cache (with image cache implementation);
     - image loader;
-    - user list;
-    - user details;
+    - user list service;
+    - user details service;
     - universal logger;
 - codable models
+- UI-agnostic view models
+- UI:
+    - pull-to-refresh on user list
+    - user avatar placeholder
+    - in-memory user avatar caching
 - helpers:
     - generic & reactive pagination (UISource, Sink)
-    - error handling with universal UI (BannerView)
+    - universal UI for error handling (BannerView)
     - reusable Combine extension
     - universal activity indicator
-- unit tests
-- pull-to-refresh on user list
+- tests:
+    - unit tests for view models
+    - unit tests for services
+    - unit tests for pagination
+    - integration and unit-tests for the network
+    - bare minimum testing for view controllers and views
 
+Potential improvements:
+- generic navigation approach + unit-tests
+- generic font scheme to support white-label
+- network availability + UI
+- support landscape device orientation
+- CI / CD
