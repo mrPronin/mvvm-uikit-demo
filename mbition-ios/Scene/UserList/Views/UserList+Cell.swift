@@ -90,23 +90,6 @@ extension UserList.Cell {
         contentView.layer.borderWidth = 4
         contentView.layer.cornerRadius = 8
         contentView.clipsToBounds = true
-        
-//        accessoryType = .disclosureIndicator
-        
-//        containerView.add(into: contentView)
-//            .leading(8)
-//            .height(80)
-//            .trailing(8)
-//            .top(8)
-//            .bottom(8)
-//            .done()
-
-//        contentStackView.add(into: contentView)
-//            .leading(8)
-//            .trailing(8)
-//            .top(8)
-//            .bottom(8)
-//            .done()
 
         avatar.add(into: contentView)
             .leading(16)
@@ -122,15 +105,5 @@ extension UserList.Cell {
             .bottom(8)
             .trailing(16, relation: .greaterThanOrEqual)
             .done()
-
-        // avatar
-//        avatar.cl
-//            .width(60)
-//            .height(60)
-//            .done()
-//        contentStackView.addArrangedSubview(avatar)
-
-        // title
-//        contentStackView.addArrangedSubview(title)
     }
 }
