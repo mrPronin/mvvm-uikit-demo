@@ -1,6 +1,6 @@
 # mbition-ios
 
-Tech challenge from MBition
+MBition tech challenge
 
 Description:
 - Language: Swift
