@@ -15,11 +15,11 @@ class PaginationTests: XCTestCase {
     var uiSource: Pagination.UISource!
     var reloadSubject: PassthroughSubject<Void, Never>!
     var loadNextPageSubject: PassthroughSubject<Void, Never>!
-    var subsciptions: Set<AnyCancellable>!
+    var subscriptions: Set<AnyCancellable>!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        subsciptions = Set<AnyCancellable>()
+        subscriptions = Set<AnyCancellable>()
         reloadSubject = PassthroughSubject<Void, Never>()
         loadNextPageSubject = PassthroughSubject<Void, Never>()
         uiSource = Pagination.UISource(
@@ -28,14 +28,14 @@ class PaginationTests: XCTestCase {
         )
         sut = Pagination.Sink(ui: uiSource, loadData: dataLoaderNormalResponse(request:))
     }
-
+    
     override func tearDownWithError() throws {
         try super.tearDownWithError()
         sut = nil
         uiSource = nil
         reloadSubject = nil
         loadNextPageSubject = nil
-        subsciptions = []
+        subscriptions = []
     }
     
     func testReload() throws {
@@ -122,7 +122,7 @@ class PaginationTests: XCTestCase {
         XCTAssertTrue(result is Network.Errors, "Unexpected error type: \(type(of: result))")
         XCTAssertEqual(result as? Network.Errors, .notFound)
     }
-
+    
     func dataLoaderNormalResponse(request: PaginationSink.Request) -> AnyPublisher<PaginationSink.Response, Error> {
         return Just<[UserList.Model]>(UserList.Model.mockedUserList)
             .setFailureType(to: Error.self)

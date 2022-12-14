@@ -12,7 +12,7 @@ import Combine
 class UserDetailsViewModelTests: XCTestCase {
     var sut: UserDetailsViewModel!
     var userDetailService: UserDetails.Service.Mock!
-    var subsciptions = Set<AnyCancellable>()
+    var subscriptions: Set<AnyCancellable>!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -22,17 +22,17 @@ class UserDetailsViewModelTests: XCTestCase {
             userDetailsService: userDetailService,
             userListModel: userListModel
         )
-        subsciptions = Set<AnyCancellable>()
+        subscriptions = Set<AnyCancellable>()
     }
 
     override func tearDownWithError() throws {
         try super.tearDownWithError()
         sut = nil
         userDetailService = nil
-        subsciptions = []
+        subscriptions = []
     }
     
-    func testUserDetailsWithSuccessResponse() throws {
+    func testUserDetailsWithSuccessfulResponse() throws {
         userDetailService.userDetails = UserDetails.Model.mockedUserDetails
         let load = PassthroughSubject<Void, Never>()
         let output = sut.transform(input: .init(load: load.eraseToAnyPublisher()))
@@ -46,7 +46,7 @@ class UserDetailsViewModelTests: XCTestCase {
         userDetailService.error = Network.Errors.unauthorized
         let load = PassthroughSubject<Void, Never>()
         let output = sut.transform(input: .init(load: load.eraseToAnyPublisher()))
-        output.userDetails.sink { _ in }.store(in: &subsciptions)
+        output.userDetails.sink { _ in }.store(in: &subscriptions)
         let result = try awaitSingle(output.error, actionHandler: {
             load.send()
         })
@@ -64,7 +64,7 @@ class UserDetailsViewModelTests: XCTestCase {
                 result = $0
                 expectation.fulfill()
             })
-            .store(in: &subsciptions)
+            .store(in: &subscriptions)
         waitForExpectations(timeout: 10)
         XCTAssertEqual(result, UserList.Model.mockedUserList[0])
     }
@@ -73,7 +73,7 @@ class UserDetailsViewModelTests: XCTestCase {
         userDetailService.userDetails = UserDetails.Model.mockedUserDetails
         let load = PassthroughSubject<Void, Never>()
         let output = sut.transform(input: .init(load: load.eraseToAnyPublisher()))
-        output.userDetails.sink { _ in }.store(in: &subsciptions)
+        output.userDetails.sink { _ in }.store(in: &subscriptions)
 
         let activityIndicatorPublisher = output.activityIndicator
             .collect(2)

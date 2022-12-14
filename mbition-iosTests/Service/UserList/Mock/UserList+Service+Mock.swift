@@ -12,15 +12,19 @@ import Combine
 
 extension UserList.Service {
     class Mock: UserListService {
+        // MARK: - Public
+        var error: Error?
+        var userList: [UserList.Model]?
+        
         func userListWith(paginationRequest: Pagination.Sink<UserList.Model>.Request) -> AnyPublisher<Pagination.Sink<UserList.Model>.Response, Error>
         {
             if let error = error {
                 return Fail(error: error)
                     .eraseToAnyPublisher()
             }
-            if let userListArray = userListArray {
+            if let userList = userList {
                 let response = Pagination.Sink<UserList.Model>.Response(
-                    data: userListArray,
+                    data: userList,
                     since: paginationRequest.since,
                     nextSince: paginationRequest.since + Pagination.perPage
                 )
@@ -31,19 +35,5 @@ extension UserList.Service {
             return Empty().eraseToAnyPublisher()
         }
         
-        var error: Error?
-        var userListArray: [UserList.Model]?
-        var userList: AnyPublisher<[UserList.Model], Error> {
-            if let error = error {
-                return Fail(error: error)
-                    .eraseToAnyPublisher()
-            }
-            if let userListArray = userListArray {
-                return Just<[UserList.Model]>(userListArray)
-                    .setFailureType(to: Error.self)
-                    .eraseToAnyPublisher()
-            }
-            return Empty().eraseToAnyPublisher()
-        }
     }
 }
