@@ -1,4 +1,4 @@
-# mbition-ios
+# mvvm-uikit-demo
 
 MBition tech challenge
 
